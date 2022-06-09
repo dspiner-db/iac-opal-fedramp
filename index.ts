@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { randomUUID } from "crypto";
-import { SubnetCIDRAdviser, ICalculatorResults } from 'subnet-cidr-calculator'
+import { SubnetCIDRAdviser, ICalculatorSubnet } from 'subnet-cidr-calculator'
 
 const CONFIG = new pulumi.Config()
 const PROJECT_ID = CONFIG.get('projectId') || process.env.PROJECT_ID || randomUUID()
@@ -25,6 +25,10 @@ function createTags(Name: string){
 
 
 async function networking(){
+    // Get the Cidr in a format for for creating subnets
+    let [vpcAddress, netmask] = CIDR.split('/')
+
+    const vpcSubnets: ICalculatorSubnet[] = SubnetCIDRAdviser.calculate(vpcAddress, netmask, [ CIDR ]).subnets.filter(s => s.value.includes(`/${netmask}`))
 
     const azs = await aws.getAvailabilityZones({
         state: "available"
@@ -36,33 +40,40 @@ async function networking(){
         enableDnsHostnames: true
     })
 
-    const subnets = [
-        {
-            type: "public",
-            az: `${AWS_REGION}a`,
-            cidr: ""
-        },
-        {
+    const publicSubnets: aws.ec2.Subnet[] = []
+    const privateSubnets: aws.ec2.Subnet[] = []
 
-        }
-    ].map((subnet) => {
-        let subnetName = ``
-        let baseTags = createTags(subnetName)
-        baseTags[`kubernetes.io/cluster/${BASE_NAME}` as keyof typeof baseTags] = "shared"
+    let subnetCounter = 0
+    azs.names.forEach((az: string) => {
 
-        if(subnet.type == "public"){
-            baseTags["kubernetes.io/role/elb" as keyof typeof baseTags] = "1"
-        }
-        else{
-            baseTags["kubernetes.io/role/internal-elb" as keyof typeof baseTags] = "1"
-        }
+        let subnetBaseName = `${BASE_NAME}-cluster/Subnet`
+        let privateName = `${subnetBaseName}Private${az.toUpperCase()}`
 
-        return new aws.ec2.Subnet(subnetName, {
+        let privateTags = createTags(privateName)
+        privateTags[`kubernetes.io/cluster/${BASE_NAME}` as keyof typeof privateTags] = "shared"
+        privateTags["kubernetes.io/role/internal-elb" as keyof typeof privateTags] = "1"
+
+        privateSubnets.push(new aws.ec2.Subnet(privateName, {
             vpcId: clusterVPC.id,
-            cidrBlock: subnet.cidr,
-            availabilityZone: subnet.az,
-            tags: baseTags
-        })
+            cidrBlock: vpcSubnets[subnetCounter].value,
+            availabilityZone: az,
+            tags: privateTags
+        }))
+        subnetCounter ++
+
+        let publicName = `${subnetBaseName}Public${az.toUpperCase()}`
+        let publicTags = createTags(publicName)
+        publicTags[`kubernetes.io/cluster/${BASE_NAME}` as keyof typeof publicTags] = "shared"
+        publicTags["kubernetes.io/role/elb" as keyof typeof publicTags] = "1"
+
+        publicSubnets.push(new aws.ec2.Subnet(publicName, {
+            vpcId: clusterVPC.id,
+            cidrBlock: vpcSubnets[subnetCounter].value,
+            availabilityZone: az,
+            tags: publicTags
+        }))
+        subnetCounter ++
+
     })
 
     let natGatewayIP_name = ``
@@ -72,11 +83,32 @@ async function networking(){
 
     let natGateway_name = ``
     const natGateway = new aws.ec2.NatGateway(natGateway_name, {
-        subnetId: subnets[0].id,
+        subnetId: publicSubnets[0].id,
         allocationId: natGatewayIP.allocationId
     })
 
-    subnets.filter(subnet => subnet.)
+    let internetGateway_name = ``
+    const internetGateway = new aws.ec2.InternetGateway(internetGateway_name, {
+        vpcId: clusterVPC.id,
+        tags: createTags(internetGateway_name)
+    })
+
+    // const privateRouteTables: aws.ec2.RouteTable[] = 
+    privateSubnets.forEach((subnet) => {
+        subnet.cidrBlock.apply((cidr) => {
+            let rt_name = ``
+            new aws.ec2.RouteTable(rt_name, {
+                vpcId: clusterVPC.id,
+                routes: [
+                    {
+                        cidrBlock: cidr,
+                        natGatewayId: natGateway.id
+                    }
+                ],
+                tags: createTags(rt_name)
+            })
+        })
+    })
 
 }
 
