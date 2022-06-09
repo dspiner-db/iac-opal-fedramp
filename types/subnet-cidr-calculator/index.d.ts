@@ -34,5 +34,7 @@ declare module 'subnet-cidr-calculator' {
         calculate: ICalculate
     }
 
+    export const calculate: ICalculate
+
     export const SubnetCIDRAdviser: ISubnetCIDRAdviser
 }

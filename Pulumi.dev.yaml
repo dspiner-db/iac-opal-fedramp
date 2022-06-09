@@ -1,4 +1,8 @@
 encryptionsalt: v1:kXiQLEK0qbs=:v1:yxs/4f+nRleCBnOw:XoRAbtcOlz+lNDledVh7p/60Zchhyg==
 config:
+  # aws:profile: dev
   aws:region: us-west-2
-  iac-opal-fedramp:cidr: 172.14.96.0/19
+  iac-opal-fedramp:cidr: 172.14.96.0/16
+  iac-opal-fedramp:owner: corpeng
+  iac-opal-fedramp:projectName: opal-cluster
+  iac-opal-fedramp:subnetNetmask: "19"
