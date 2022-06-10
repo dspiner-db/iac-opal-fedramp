@@ -1,0 +1,64 @@
+{
+    "version": 3,
+    "checkpoint": {
+        "stack": "dev",
+        "latest": {
+            "manifest": {
+                "time": "2022-06-09T17:23:59.853597-07:00",
+                "magic": "d843f04a37e8f4e2a83f1ae440f47ce675295195a6cfd1762ac0c689566392b9",
+                "version": "v3.34.0"
+            },
+            "secrets_providers": {
+                "type": "passphrase",
+                "state": {
+                    "salt": "v1:kXiQLEK0qbs=:v1:yxs/4f+nRleCBnOw:XoRAbtcOlz+lNDledVh7p/60Zchhyg=="
+                }
+            },
+            "resources": [
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0",
+                    "custom": true,
+                    "id": "cb5e743b-b692-4780-b023-6b5462df36f4",
+                    "type": "pulumi:providers:aws",
+                    "inputs": {
+                        "profile": "dev",
+                        "region": "us-west-2",
+                        "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                        "version": "5.7.0"
+                    },
+                    "outputs": {
+                        "profile": "dev",
+                        "region": "us-west-2",
+                        "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                        "version": "5.7.0"
+                    },
+                    "sequenceNumber": 1
+                }
+            ],
+            "pending_operations": [
+                {
+                    "resource": {
+                        "urn": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0",
+                        "custom": true,
+                        "id": "cb5e743b-b692-4780-b023-6b5462df36f4",
+                        "type": "pulumi:providers:aws",
+                        "inputs": {
+                            "profile": "dev",
+                            "region": "us-west-2",
+                            "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                            "version": "5.7.0"
+                        },
+                        "outputs": {
+                            "profile": "dev",
+                            "region": "us-west-2",
+                            "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                            "version": "5.7.0"
+                        },
+                        "sequenceNumber": 1
+                    },
+                    "type": "deleting"
+                }
+            ]
+        }
+    }
+}

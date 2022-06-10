@@ -1,4 +1,16 @@
 declare module 'subnet-cidr-calculator' {
+
+
+    export interface IgetSubnetDetails {
+        (cidr: string): IsubnetDetails
+    }
+
+    export interface IsubnetDetails {
+        hosts: string[]
+        noofhosts: number
+        startAddr: string
+        endAddr: string
+    }
     
     export interface ICalculatorSubnet {
         value: string
@@ -32,9 +44,11 @@ declare module 'subnet-cidr-calculator' {
     export interface ISubnetCIDRAdviser {
         new (): ISubnetCIDRAdviser
         calculate: ICalculate
+        getSubnetDetails: IgetSubnetDetails
     }
 
     export const calculate: ICalculate
+    export const getSubnetDetails: IgetSubnetDetails
 
     export const SubnetCIDRAdviser: ISubnetCIDRAdviser
 }
