@@ -4,7 +4,7 @@
         "stack": "dev",
         "latest": {
             "manifest": {
-                "time": "2022-06-13T16:16:41.191807-07:00",
+                "time": "2022-06-13T15:20:57.559704-07:00",
                 "magic": "80eb2eb54399e33107cbb20fd007e6f202ada4644be7743baddcb736a933c255",
                 "version": "v3.33.2"
             },
@@ -37,245 +37,6 @@
                         "region": "us-west-2",
                         "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
                         "version": "5.7.0"
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/role:Role::dev-iac-opal-fedramp-role-cluster-service",
-                    "custom": true,
-                    "id": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
-                    "type": "aws:iam/role:Role",
-                    "inputs": {
-                        "__defaults": [
-                            "forceDetachPolicies",
-                            "maxSessionDuration",
-                            "name",
-                            "path"
-                        ],
-                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Effect\":\"Allow\"}]}",
-                        "forceDetachPolicies": false,
-                        "inlinePolicies": [
-                            {
-                                "__defaults": [],
-                                "name": "dev-iac-opal-fedramp-policy-elb",
-                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
-                            },
-                            {
-                                "__defaults": [],
-                                "name": "dev-iac-opal-fedramp-policy-metrics",
-                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
-                            }
-                        ],
-                        "managedPolicyArns": [
-                            "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-                            "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
-                        ],
-                        "maxSessionDuration": 3600,
-                        "name": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
-                        "path": "/",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-role-cluster-service",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        }
-                    },
-                    "outputs": {
-                        "arn": "arn:aws:iam::281939258594:role/dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
-                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
-                        "createDate": "2022-06-13T21:35:33Z",
-                        "description": "",
-                        "forceDetachPolicies": false,
-                        "id": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
-                        "inlinePolicies": [
-                            {
-                                "name": "dev-iac-opal-fedramp-policy-metrics",
-                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
-                            },
-                            {
-                                "name": "dev-iac-opal-fedramp-policy-elb",
-                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
-                            }
-                        ],
-                        "managedPolicyArns": [
-                            "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-                            "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
-                        ],
-                        "maxSessionDuration": 3600,
-                        "name": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
-                        "namePrefix": "",
-                        "path": "/",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-role-cluster-service",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-role-cluster-service",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "uniqueId": "AROAUDJHDVTRJWB5ME6WP"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "assumeRolePolicy": null,
-                        "inlinePolicies": null,
-                        "managedPolicyArns": null,
-                        "tags": null
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-iac-opal-fedramp/nat/eip",
-                    "custom": true,
-                    "id": "eipalloc-0273c22c512f88c91",
-                    "type": "aws:ec2/eip:Eip",
-                    "inputs": {
-                        "__defaults": [],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/nat/eip",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        },
-                        "vpc": true
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":180000000000,\"read\":900000000000,\"update\":300000000000}}",
-                        "allocationId": "eipalloc-0273c22c512f88c91",
-                        "associationId": "",
-                        "carrierIp": "",
-                        "customerOwnedIp": "",
-                        "customerOwnedIpv4Pool": "",
-                        "domain": "vpc",
-                        "id": "eipalloc-0273c22c512f88c91",
-                        "instance": "",
-                        "networkBorderGroup": "us-west-2",
-                        "networkInterface": "",
-                        "privateIp": "",
-                        "publicDns": "ec2-34-209-4-140.us-west-2.compute.amazonaws.com",
-                        "publicIp": "34.209.4.140",
-                        "publicIpv4Pool": "amazon",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/nat/eip",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/nat/eip",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "vpc": true
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "tags": null,
-                        "vpc": null
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/role:Role::dev-iac-opal-fedramp-role-node-group",
-                    "custom": true,
-                    "id": "dev-iac-opal-fedramp-role-node-group-066dd0a",
-                    "type": "aws:iam/role:Role",
-                    "inputs": {
-                        "__defaults": [
-                            "forceDetachPolicies",
-                            "maxSessionDuration",
-                            "name",
-                            "path"
-                        ],
-                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
-                        "forceDetachPolicies": false,
-                        "managedPolicyArns": [
-                            "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
-                            "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
-                            "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-                            "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-                        ],
-                        "maxSessionDuration": 3600,
-                        "name": "dev-iac-opal-fedramp-role-node-group-066dd0a",
-                        "path": "/",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-role-node-group",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        }
-                    },
-                    "outputs": {
-                        "arn": "arn:aws:iam::281939258594:role/dev-iac-opal-fedramp-role-node-group-066dd0a",
-                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
-                        "createDate": "2022-06-13T21:48:35Z",
-                        "description": "",
-                        "forceDetachPolicies": false,
-                        "id": "dev-iac-opal-fedramp-role-node-group-066dd0a",
-                        "inlinePolicies": [
-                            {
-                                "name": "",
-                                "policy": ""
-                            }
-                        ],
-                        "managedPolicyArns": [
-                            "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-                            "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
-                            "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
-                            "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
-                        ],
-                        "maxSessionDuration": 3600,
-                        "name": "dev-iac-opal-fedramp-role-node-group-066dd0a",
-                        "namePrefix": "",
-                        "path": "/",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-role-node-group",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-role-node-group",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "uniqueId": "AROAUDJHDVTREW4WWUT74"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "assumeRolePolicy": null,
-                        "managedPolicyArns": null,
-                        "tags": null
                     },
                     "sequenceNumber": 1
                 },
@@ -421,6 +182,254 @@
                     "sequenceNumber": 1
                 },
                 {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-iac-opal-fedramp/nat/eip",
+                    "custom": true,
+                    "id": "eipalloc-0273c22c512f88c91",
+                    "type": "aws:ec2/eip:Eip",
+                    "inputs": {
+                        "__defaults": [],
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/nat/eip",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": []
+                        },
+                        "vpc": true
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":180000000000,\"read\":900000000000,\"update\":300000000000}}",
+                        "allocationId": "eipalloc-0273c22c512f88c91",
+                        "associationId": "",
+                        "carrierIp": "",
+                        "customerOwnedIp": "",
+                        "customerOwnedIpv4Pool": "",
+                        "domain": "vpc",
+                        "id": "eipalloc-0273c22c512f88c91",
+                        "instance": "",
+                        "networkBorderGroup": "us-west-2",
+                        "networkInterface": "",
+                        "privateIp": "",
+                        "publicDns": "ec2-34-209-4-140.us-west-2.compute.amazonaws.com",
+                        "publicIp": "34.209.4.140",
+                        "publicIpv4Pool": "amazon",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/nat/eip",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/nat/eip",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "vpc": true
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "tags": null,
+                        "vpc": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/role:Role::dev-iac-opal-fedramp-role-cluster-service",
+                    "custom": true,
+                    "id": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
+                    "type": "aws:iam/role:Role",
+                    "inputs": {
+                        "__defaults": [
+                            "forceDetachPolicies",
+                            "maxSessionDuration",
+                            "name",
+                            "path"
+                        ],
+                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Effect\":\"Allow\"}]}",
+                        "forceDetachPolicies": false,
+                        "inlinePolicies": [
+                            {
+                                "__defaults": [],
+                                "name": "dev-iac-opal-fedramp-policy-elb",
+                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                            },
+                            {
+                                "__defaults": [],
+                                "name": "dev-iac-opal-fedramp-policy-metrics",
+                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                            }
+                        ],
+                        "managedPolicyArns": [
+                            "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                            "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+                        ],
+                        "maxSessionDuration": 3600,
+                        "name": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
+                        "path": "/",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp-role-cluster-service",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": []
+                        }
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:iam::281939258594:role/dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
+                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+                        "createDate": "2022-06-13T21:35:33Z",
+                        "description": "",
+                        "forceDetachPolicies": false,
+                        "id": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
+                        "inlinePolicies": [
+                            {
+                                "name": "dev-iac-opal-fedramp-policy-metrics",
+                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                            },
+                            {
+                                "name": "dev-iac-opal-fedramp-policy-elb",
+                                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                            }
+                        ],
+                        "managedPolicyArns": [
+                            "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                            "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+                        ],
+                        "maxSessionDuration": 3600,
+                        "name": "dev-iac-opal-fedramp-role-cluster-service-b4d8c81",
+                        "namePrefix": "",
+                        "path": "/",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp-role-cluster-service",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp-role-cluster-service",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "uniqueId": "AROAUDJHDVTRJWB5ME6WP"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "assumeRolePolicy": null,
+                        "inlinePolicies": null,
+                        "managedPolicyArns": null,
+                        "tags": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2b",
+                    "custom": true,
+                    "id": "subnet-076d6f59b21a40709",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2b",
+                        "cidrBlock": "10.0.3.0/24",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-public-2b",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-076d6f59b21a40709",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2b",
+                        "availabilityZoneId": "usw2-az2",
+                        "cidrBlock": "10.0.3.0/24",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-076d6f59b21a40709",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-public-2b",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-public-2b",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
                     "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group",
                     "custom": true,
                     "id": "sg-0b4dcda5c80da2b66",
@@ -480,6 +489,335 @@
                     "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
                     "propertyDependencies": {
                         "description": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/internetGateway:InternetGateway::dev-iac-opal-fedramp/igw",
+                    "custom": true,
+                    "id": "igw-093732b0394f1f40c",
+                    "type": "aws:ec2/internetGateway:InternetGateway",
+                    "inputs": {
+                        "__defaults": [],
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/igw",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:internet-gateway/igw-093732b0394f1f40c",
+                        "id": "igw-093732b0394f1f40c",
+                        "ownerId": "281939258594",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/igw",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/igw",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2d",
+                    "custom": true,
+                    "id": "subnet-03171fa0482f5f997",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "cidrBlock": "10.0.6.0/24",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-private-2d",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-03171fa0482f5f997",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "availabilityZoneId": "usw2-az4",
+                        "cidrBlock": "10.0.6.0/24",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-03171fa0482f5f997",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-private-2d",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-private-2d",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2c",
+                    "custom": true,
+                    "id": "subnet-008bcf663d7b7c754",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2c",
+                        "cidrBlock": "10.0.4.0/24",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-private-2c",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-008bcf663d7b7c754",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2c",
+                        "availabilityZoneId": "usw2-az3",
+                        "cidrBlock": "10.0.4.0/24",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-008bcf663d7b7c754",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-private-2c",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-private-2c",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2d",
+                    "custom": true,
+                    "id": "subnet-00d1163268bc46892",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "cidrBlock": "10.0.7.0/24",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-public-2d",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-00d1163268bc46892",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "availabilityZoneId": "usw2-az4",
+                        "cidrBlock": "10.0.7.0/24",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-00d1163268bc46892",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-public-2d",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/subnet-public-2d",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
                         "tags": null,
                         "vpcId": [
                             "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
@@ -672,98 +1010,6 @@
                     "sequenceNumber": 1
                 },
                 {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2d",
-                    "custom": true,
-                    "id": "subnet-03171fa0482f5f997",
-                    "type": "aws:ec2/subnet:Subnet",
-                    "inputs": {
-                        "__defaults": [
-                            "assignIpv6AddressOnCreation",
-                            "enableDns64",
-                            "enableResourceNameDnsARecordOnLaunch",
-                            "enableResourceNameDnsAaaaRecordOnLaunch",
-                            "ipv6Native",
-                            "mapPublicIpOnLaunch"
-                        ],
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2d",
-                        "cidrBlock": "10.0.6.0/24",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "ipv6Native": false,
-                        "mapPublicIpOnLaunch": false,
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-private-2d",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": [],
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/internal-elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-03171fa0482f5f997",
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2d",
-                        "availabilityZoneId": "usw2-az4",
-                        "cidrBlock": "10.0.6.0/24",
-                        "customerOwnedIpv4Pool": "",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "id": "subnet-03171fa0482f5f997",
-                        "ipv6CidrBlock": "",
-                        "ipv6CidrBlockAssociationId": "",
-                        "ipv6Native": false,
-                        "mapCustomerOwnedIpOnLaunch": false,
-                        "mapPublicIpOnLaunch": false,
-                        "outpostArn": "",
-                        "ownerId": "281939258594",
-                        "privateDnsHostnameTypeOnLaunch": "ip-name",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-private-2d",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/internal-elb": "1"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-private-2d",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/internal-elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "availabilityZone": null,
-                        "cidrBlock": null,
-                        "tags": null,
-                        "vpcId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
                     "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2a",
                     "custom": true,
                     "id": "subnet-070d18b4adbc63332",
@@ -856,200 +1102,22 @@
                     "sequenceNumber": 1
                 },
                 {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2c",
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane",
                     "custom": true,
-                    "id": "subnet-008bcf663d7b7c754",
-                    "type": "aws:ec2/subnet:Subnet",
+                    "id": "sg-055199003b18bb504",
+                    "type": "aws:ec2/securityGroup:SecurityGroup",
                     "inputs": {
                         "__defaults": [
-                            "assignIpv6AddressOnCreation",
-                            "enableDns64",
-                            "enableResourceNameDnsARecordOnLaunch",
-                            "enableResourceNameDnsAaaaRecordOnLaunch",
-                            "ipv6Native",
-                            "mapPublicIpOnLaunch"
+                            "name",
+                            "revokeRulesOnDelete"
                         ],
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2c",
-                        "cidrBlock": "10.0.4.0/24",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "ipv6Native": false,
-                        "mapPublicIpOnLaunch": false,
+                        "description": "Communication between the control plane and worker nodegroups",
+                        "name": "dev-iac-opal-fedramp/sg/control-plane-603bc89",
+                        "revokeRulesOnDelete": false,
                         "tags": {
                             "ClusterName": "dev-iac-opal-fedramp-cluster",
                             "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-private-2c",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": [],
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/internal-elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-008bcf663d7b7c754",
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2c",
-                        "availabilityZoneId": "usw2-az3",
-                        "cidrBlock": "10.0.4.0/24",
-                        "customerOwnedIpv4Pool": "",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "id": "subnet-008bcf663d7b7c754",
-                        "ipv6CidrBlock": "",
-                        "ipv6CidrBlockAssociationId": "",
-                        "ipv6Native": false,
-                        "mapCustomerOwnedIpOnLaunch": false,
-                        "mapPublicIpOnLaunch": false,
-                        "outpostArn": "",
-                        "ownerId": "281939258594",
-                        "privateDnsHostnameTypeOnLaunch": "ip-name",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-private-2c",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/internal-elb": "1"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-private-2c",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/internal-elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "availabilityZone": null,
-                        "cidrBlock": null,
-                        "tags": null,
-                        "vpcId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2b",
-                    "custom": true,
-                    "id": "subnet-076d6f59b21a40709",
-                    "type": "aws:ec2/subnet:Subnet",
-                    "inputs": {
-                        "__defaults": [
-                            "assignIpv6AddressOnCreation",
-                            "enableDns64",
-                            "enableResourceNameDnsARecordOnLaunch",
-                            "enableResourceNameDnsAaaaRecordOnLaunch",
-                            "ipv6Native",
-                            "mapPublicIpOnLaunch"
-                        ],
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2b",
-                        "cidrBlock": "10.0.3.0/24",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "ipv6Native": false,
-                        "mapPublicIpOnLaunch": false,
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-public-2b",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": [],
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-076d6f59b21a40709",
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2b",
-                        "availabilityZoneId": "usw2-az2",
-                        "cidrBlock": "10.0.3.0/24",
-                        "customerOwnedIpv4Pool": "",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "id": "subnet-076d6f59b21a40709",
-                        "ipv6CidrBlock": "",
-                        "ipv6CidrBlockAssociationId": "",
-                        "ipv6Native": false,
-                        "mapCustomerOwnedIpOnLaunch": false,
-                        "mapPublicIpOnLaunch": false,
-                        "outpostArn": "",
-                        "ownerId": "281939258594",
-                        "privateDnsHostnameTypeOnLaunch": "ip-name",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-public-2b",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/elb": "1"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-public-2b",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "availabilityZone": null,
-                        "cidrBlock": null,
-                        "tags": null,
-                        "vpcId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/internetGateway:InternetGateway::dev-iac-opal-fedramp/igw",
-                    "custom": true,
-                    "id": "igw-093732b0394f1f40c",
-                    "type": "aws:ec2/internetGateway:InternetGateway",
-                    "inputs": {
-                        "__defaults": [],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/igw",
+                            "Name": "dev-iac-opal-fedramp/sg/control-plane",
                             "Owner": "ceng",
                             "Project": "iac-opal-fedramp",
                             "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
@@ -1058,13 +1126,20 @@
                         "vpcId": "vpc-05fa75cff11064e28"
                     },
                     "outputs": {
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:internet-gateway/igw-093732b0394f1f40c",
-                        "id": "igw-093732b0394f1f40c",
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:security-group/sg-055199003b18bb504",
+                        "description": "Communication between the control plane and worker nodegroups",
+                        "egress": [],
+                        "id": "sg-055199003b18bb504",
+                        "ingress": [],
+                        "name": "dev-iac-opal-fedramp/sg/control-plane-603bc89",
+                        "namePrefix": "",
                         "ownerId": "281939258594",
+                        "revokeRulesOnDelete": false,
                         "tags": {
                             "ClusterName": "dev-iac-opal-fedramp-cluster",
                             "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/igw",
+                            "Name": "dev-iac-opal-fedramp/sg/control-plane",
                             "Owner": "ceng",
                             "Project": "iac-opal-fedramp",
                             "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
@@ -1072,7 +1147,7 @@
                         "tagsAll": {
                             "ClusterName": "dev-iac-opal-fedramp-cluster",
                             "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/igw",
+                            "Name": "dev-iac-opal-fedramp/sg/control-plane",
                             "Owner": "ceng",
                             "Project": "iac-opal-fedramp",
                             "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
@@ -1085,98 +1160,7 @@
                     ],
                     "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
                     "propertyDependencies": {
-                        "tags": null,
-                        "vpcId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2d",
-                    "custom": true,
-                    "id": "subnet-00d1163268bc46892",
-                    "type": "aws:ec2/subnet:Subnet",
-                    "inputs": {
-                        "__defaults": [
-                            "assignIpv6AddressOnCreation",
-                            "enableDns64",
-                            "enableResourceNameDnsARecordOnLaunch",
-                            "enableResourceNameDnsAaaaRecordOnLaunch",
-                            "ipv6Native",
-                            "mapPublicIpOnLaunch"
-                        ],
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2d",
-                        "cidrBlock": "10.0.7.0/24",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "ipv6Native": false,
-                        "mapPublicIpOnLaunch": false,
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-public-2d",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": [],
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-00d1163268bc46892",
-                        "assignIpv6AddressOnCreation": false,
-                        "availabilityZone": "us-west-2d",
-                        "availabilityZoneId": "usw2-az4",
-                        "cidrBlock": "10.0.7.0/24",
-                        "customerOwnedIpv4Pool": "",
-                        "enableDns64": false,
-                        "enableResourceNameDnsARecordOnLaunch": false,
-                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                        "id": "subnet-00d1163268bc46892",
-                        "ipv6CidrBlock": "",
-                        "ipv6CidrBlockAssociationId": "",
-                        "ipv6Native": false,
-                        "mapCustomerOwnedIpOnLaunch": false,
-                        "mapPublicIpOnLaunch": false,
-                        "outpostArn": "",
-                        "ownerId": "281939258594",
-                        "privateDnsHostnameTypeOnLaunch": "ip-name",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-public-2d",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/elb": "1"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/subnet-public-2d",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "kubernetes.io/cluster/dev-iac-opal-fedramp": "shared",
-                            "kubernetes.io/role/elb": "1"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "availabilityZone": null,
-                        "cidrBlock": null,
+                        "description": null,
                         "tags": null,
                         "vpcId": [
                             "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
@@ -1277,73 +1261,6 @@
                     "sequenceNumber": 1
                 },
                 {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane",
-                    "custom": true,
-                    "id": "sg-055199003b18bb504",
-                    "type": "aws:ec2/securityGroup:SecurityGroup",
-                    "inputs": {
-                        "__defaults": [
-                            "name",
-                            "revokeRulesOnDelete"
-                        ],
-                        "description": "Communication between the control plane and worker nodegroups",
-                        "name": "dev-iac-opal-fedramp/sg/control-plane-603bc89",
-                        "revokeRulesOnDelete": false,
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/sg/control-plane",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:security-group/sg-055199003b18bb504",
-                        "description": "Communication between the control plane and worker nodegroups",
-                        "egress": [],
-                        "id": "sg-055199003b18bb504",
-                        "ingress": [],
-                        "name": "dev-iac-opal-fedramp/sg/control-plane-603bc89",
-                        "namePrefix": "",
-                        "ownerId": "281939258594",
-                        "revokeRulesOnDelete": false,
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/sg/control-plane",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/sg/control-plane",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "description": null,
-                        "tags": null,
-                        "vpcId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
                     "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-https-cluster",
                     "custom": true,
                     "id": "sgrule-351483091",
@@ -1388,6 +1305,50 @@
                     "sequenceNumber": 1
                 },
                 {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-ingress-tcp-dns",
+                    "custom": true,
+                    "id": "sgrule-679924293",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 53,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0b4dcda5c80da2b66",
+                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
+                        "toPort": 53,
+                        "type": "ingress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 53,
+                        "id": "sgrule-679924293",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0b4dcda5c80da2b66",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
+                        "toPort": 53,
+                        "type": "ingress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
                     "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-tcp-ntp",
                     "custom": true,
                     "id": "sgrule-3367546438",
@@ -1411,52 +1372,6 @@
                         "fromPort": 123,
                         "id": "sgrule-3367546438",
                         "protocol": "tcp",
-                        "securityGroupId": "sg-0b4dcda5c80da2b66",
-                        "self": false,
-                        "toPort": 123,
-                        "type": "egress"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "cidrBlocks": null,
-                        "fromPort": null,
-                        "protocol": null,
-                        "securityGroupId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                        ],
-                        "toPort": null,
-                        "type": null
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-udp-ntp",
-                    "custom": true,
-                    "id": "sgrule-3055979339",
-                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
-                    "inputs": {
-                        "__defaults": [],
-                        "cidrBlocks": [
-                            "0.0.0.0/0"
-                        ],
-                        "fromPort": 123,
-                        "protocol": "udp",
-                        "securityGroupId": "sg-0b4dcda5c80da2b66",
-                        "toPort": 123,
-                        "type": "egress"
-                    },
-                    "outputs": {
-                        "__meta": "{\"schema_version\":\"2\"}",
-                        "cidrBlocks": [
-                            "0.0.0.0/0"
-                        ],
-                        "fromPort": 123,
-                        "id": "sgrule-3055979339",
-                        "protocol": "udp",
                         "securityGroupId": "sg-0b4dcda5c80da2b66",
                         "self": false,
                         "toPort": 123,
@@ -1568,6 +1483,52 @@
                     "sequenceNumber": 1
                 },
                 {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-udp-ntp",
+                    "custom": true,
+                    "id": "sgrule-3055979339",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "cidrBlocks": [
+                            "0.0.0.0/0"
+                        ],
+                        "fromPort": 123,
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0b4dcda5c80da2b66",
+                        "toPort": 123,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "cidrBlocks": [
+                            "0.0.0.0/0"
+                        ],
+                        "fromPort": 123,
+                        "id": "sgrule-3055979339",
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0b4dcda5c80da2b66",
+                        "self": false,
+                        "toPort": 123,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "cidrBlocks": null,
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
                     "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-tcp-dns",
                     "custom": true,
                     "id": "sgrule-3995656220",
@@ -1608,114 +1569,6 @@
                         ],
                         "toPort": null,
                         "type": null
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-ingress-tcp-dns",
-                    "custom": true,
-                    "id": "sgrule-679924293",
-                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
-                    "inputs": {
-                        "__defaults": [],
-                        "fromPort": 53,
-                        "protocol": "tcp",
-                        "securityGroupId": "sg-0b4dcda5c80da2b66",
-                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
-                        "toPort": 53,
-                        "type": "ingress"
-                    },
-                    "outputs": {
-                        "__meta": "{\"schema_version\":\"2\"}",
-                        "fromPort": 53,
-                        "id": "sgrule-679924293",
-                        "protocol": "tcp",
-                        "securityGroupId": "sg-0b4dcda5c80da2b66",
-                        "self": false,
-                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
-                        "toPort": 53,
-                        "type": "ingress"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "fromPort": null,
-                        "protocol": null,
-                        "securityGroupId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                        ],
-                        "sourceSecurityGroupId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                        ],
-                        "toPort": null,
-                        "type": null
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-iac-opal-fedramp/nat",
-                    "custom": true,
-                    "id": "nat-0fd2f06b4db0faa57",
-                    "type": "aws:ec2/natGateway:NatGateway",
-                    "inputs": {
-                        "__defaults": [
-                            "connectivityType"
-                        ],
-                        "allocationId": "eipalloc-0273c22c512f88c91",
-                        "connectivityType": "public",
-                        "subnetId": "subnet-0acbbe6b4bb666eec",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/nat",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        }
-                    },
-                    "outputs": {
-                        "allocationId": "eipalloc-0273c22c512f88c91",
-                        "connectivityType": "public",
-                        "id": "nat-0fd2f06b4db0faa57",
-                        "networkInterfaceId": "eni-0a59b2c28ed0b998d",
-                        "privateIp": "10.0.1.205",
-                        "publicIp": "34.209.4.140",
-                        "subnetId": "subnet-0acbbe6b4bb666eec",
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/nat",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/nat",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        }
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-iac-opal-fedramp/nat/eip",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "allocationId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-iac-opal-fedramp/nat/eip"
-                        ],
-                        "subnetId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
-                        ],
-                        "tags": null
                     },
                     "sequenceNumber": 1
                 },
@@ -1800,6 +1653,160 @@
                         "vpcId": [
                             "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
                         ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-iac-opal-fedramp/nat",
+                    "custom": true,
+                    "id": "nat-0fd2f06b4db0faa57",
+                    "type": "aws:ec2/natGateway:NatGateway",
+                    "inputs": {
+                        "__defaults": [
+                            "connectivityType"
+                        ],
+                        "allocationId": "eipalloc-0273c22c512f88c91",
+                        "connectivityType": "public",
+                        "subnetId": "subnet-0acbbe6b4bb666eec",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/nat",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": []
+                        }
+                    },
+                    "outputs": {
+                        "allocationId": "eipalloc-0273c22c512f88c91",
+                        "connectivityType": "public",
+                        "id": "nat-0fd2f06b4db0faa57",
+                        "networkInterfaceId": "eni-0a59b2c28ed0b998d",
+                        "privateIp": "10.0.1.205",
+                        "publicIp": "34.209.4.140",
+                        "subnetId": "subnet-0acbbe6b4bb666eec",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/nat",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/nat",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        }
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-iac-opal-fedramp/nat/eip",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "allocationId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-iac-opal-fedramp/nat/eip"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
+                        ],
+                        "tags": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::cluster-egress-https-nodes",
+                    "custom": true,
+                    "id": "sgrule-602425033",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 443,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-055199003b18bb504",
+                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
+                        "toPort": 443,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 443,
+                        "id": "sgrule-602425033",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-055199003b18bb504",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
+                        "toPort": 443,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::cluster-ingress-https-nodes",
+                    "custom": true,
+                    "id": "sgrule-3740415160",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 443,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-055199003b18bb504",
+                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
+                        "toPort": 443,
+                        "type": "ingress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 443,
+                        "id": "sgrule-3740415160",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-055199003b18bb504",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
+                        "toPort": 443,
+                        "type": "ingress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
                     },
                     "sequenceNumber": 1
                 },
@@ -1932,51 +1939,6 @@
                         ],
                         "sourceSecurityGroupId": [
                             "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane"
-                        ],
-                        "toPort": null,
-                        "type": null
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::cluster-egress-https-nodes",
-                    "custom": true,
-                    "id": "sgrule-602425033",
-                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
-                    "inputs": {
-                        "__defaults": [],
-                        "fromPort": 443,
-                        "protocol": "tcp",
-                        "securityGroupId": "sg-055199003b18bb504",
-                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
-                        "toPort": 443,
-                        "type": "egress"
-                    },
-                    "outputs": {
-                        "__meta": "{\"schema_version\":\"2\"}",
-                        "fromPort": 443,
-                        "id": "sgrule-602425033",
-                        "protocol": "tcp",
-                        "securityGroupId": "sg-055199003b18bb504",
-                        "self": false,
-                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
-                        "toPort": 443,
-                        "type": "egress"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "fromPort": null,
-                        "protocol": null,
-                        "securityGroupId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane"
-                        ],
-                        "sourceSecurityGroupId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
                         ],
                         "toPort": null,
                         "type": null
@@ -2145,47 +2107,214 @@
                     "sequenceNumber": 1
                 },
                 {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::cluster-ingress-https-nodes",
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2d",
                     "custom": true,
-                    "id": "sgrule-3740415160",
-                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "id": "rtbassoc-004668d33c001b3f3",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
                     "inputs": {
                         "__defaults": [],
-                        "fromPort": 443,
-                        "protocol": "tcp",
-                        "securityGroupId": "sg-055199003b18bb504",
-                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
-                        "toPort": 443,
-                        "type": "ingress"
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-00d1163268bc46892"
                     },
                     "outputs": {
-                        "__meta": "{\"schema_version\":\"2\"}",
-                        "fromPort": 443,
-                        "id": "sgrule-3740415160",
-                        "protocol": "tcp",
-                        "securityGroupId": "sg-055199003b18bb504",
-                        "self": false,
-                        "sourceSecurityGroupId": "sg-0b4dcda5c80da2b66",
-                        "toPort": 443,
-                        "type": "ingress"
+                        "gatewayId": "",
+                        "id": "rtbassoc-004668d33c001b3f3",
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-00d1163268bc46892"
                     },
                     "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
                     "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2d"
                     ],
                     "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
                     "propertyDependencies": {
-                        "fromPort": null,
-                        "protocol": null,
-                        "securityGroupId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/control-plane"
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
                         ],
-                        "sourceSecurityGroupId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2d"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2b",
+                    "custom": true,
+                    "id": "rtbassoc-0f6e52a184990b753",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-076d6f59b21a40709"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-0f6e52a184990b753",
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-076d6f59b21a40709"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2b"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
                         ],
-                        "toPort": null,
-                        "type": null
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2b"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-private-2a",
+                    "custom": true,
+                    "id": "rtb-0ace991920c436a45",
+                    "type": "aws:ec2/routeTable:RouteTable",
+                    "inputs": {
+                        "__defaults": [],
+                        "routes": [
+                            {
+                                "__defaults": [],
+                                "cidrBlock": "0.0.0.0/0",
+                                "natGatewayId": "nat-0fd2f06b4db0faa57"
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/rt-private-2a",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:route-table/rtb-0ace991920c436a45",
+                        "id": "rtb-0ace991920c436a45",
+                        "ownerId": "281939258594",
+                        "propagatingVgws": [],
+                        "routes": [
+                            {
+                                "carrierGatewayId": "",
+                                "cidrBlock": "0.0.0.0/0",
+                                "coreNetworkArn": "",
+                                "destinationPrefixListId": "",
+                                "egressOnlyGatewayId": "",
+                                "gatewayId": "",
+                                "instanceId": "",
+                                "ipv6CidrBlock": "",
+                                "localGatewayId": "",
+                                "natGatewayId": "nat-0fd2f06b4db0faa57",
+                                "networkInterfaceId": "",
+                                "transitGatewayId": "",
+                                "vpcEndpointId": "",
+                                "vpcPeeringConnectionId": ""
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/rt-private-2a",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp/rt-private-2a",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "vpcId": "vpc-05fa75cff11064e28"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-iac-opal-fedramp/nat",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "routes": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-iac-opal-fedramp/nat"
+                        ],
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2c",
+                    "custom": true,
+                    "id": "rtbassoc-0797ce13fd13a3fc9",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-09f2dce7e9212ba6b"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-0797ce13fd13a3fc9",
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-09f2dce7e9212ba6b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2c"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2c"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2a",
+                    "custom": true,
+                    "id": "rtbassoc-0bafea463378113ee",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-0acbbe6b4bb666eec"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-0bafea463378113ee",
+                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
+                        "subnetId": "subnet-0acbbe6b4bb666eec"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
+                        ]
                     },
                     "sequenceNumber": 1
                 },
@@ -2442,213 +2571,33 @@
                     "sequenceNumber": 1
                 },
                 {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-private-2a",
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-private-2a",
                     "custom": true,
-                    "id": "rtb-0ace991920c436a45",
-                    "type": "aws:ec2/routeTable:RouteTable",
-                    "inputs": {
-                        "__defaults": [],
-                        "routes": [
-                            {
-                                "__defaults": [],
-                                "cidrBlock": "0.0.0.0/0",
-                                "natGatewayId": "nat-0fd2f06b4db0faa57"
-                            }
-                        ],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/rt-private-2a",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:route-table/rtb-0ace991920c436a45",
-                        "id": "rtb-0ace991920c436a45",
-                        "ownerId": "281939258594",
-                        "propagatingVgws": [],
-                        "routes": [
-                            {
-                                "carrierGatewayId": "",
-                                "cidrBlock": "0.0.0.0/0",
-                                "coreNetworkArn": "",
-                                "destinationPrefixListId": "",
-                                "egressOnlyGatewayId": "",
-                                "gatewayId": "",
-                                "instanceId": "",
-                                "ipv6CidrBlock": "",
-                                "localGatewayId": "",
-                                "natGatewayId": "nat-0fd2f06b4db0faa57",
-                                "networkInterfaceId": "",
-                                "transitGatewayId": "",
-                                "vpcEndpointId": "",
-                                "vpcPeeringConnectionId": ""
-                            }
-                        ],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/rt-private-2a",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp/rt-private-2a",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "vpcId": "vpc-05fa75cff11064e28"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-iac-opal-fedramp/nat",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "routes": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-iac-opal-fedramp/nat"
-                        ],
-                        "tags": null,
-                        "vpcId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-iac-opal-fedramp/vpc"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2c",
-                    "custom": true,
-                    "id": "rtbassoc-0797ce13fd13a3fc9",
+                    "id": "rtbassoc-0798edc24114ae696",
                     "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
                     "inputs": {
                         "__defaults": [],
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-09f2dce7e9212ba6b"
+                        "routeTableId": "rtb-0ace991920c436a45",
+                        "subnetId": "subnet-070d18b4adbc63332"
                     },
                     "outputs": {
                         "gatewayId": "",
-                        "id": "rtbassoc-0797ce13fd13a3fc9",
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-09f2dce7e9212ba6b"
+                        "id": "rtbassoc-0798edc24114ae696",
+                        "routeTableId": "rtb-0ace991920c436a45",
+                        "subnetId": "subnet-070d18b4adbc63332"
                     },
                     "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
                     "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2c"
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-private-2a",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2a"
                     ],
                     "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
                     "propertyDependencies": {
                         "routeTableId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-private-2a"
                         ],
                         "subnetId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2c"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2a",
-                    "custom": true,
-                    "id": "rtbassoc-0bafea463378113ee",
-                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
-                    "inputs": {
-                        "__defaults": [],
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-0acbbe6b4bb666eec"
-                    },
-                    "outputs": {
-                        "gatewayId": "",
-                        "id": "rtbassoc-0bafea463378113ee",
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-0acbbe6b4bb666eec"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "routeTableId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
-                        ],
-                        "subnetId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2a"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2d",
-                    "custom": true,
-                    "id": "rtbassoc-004668d33c001b3f3",
-                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
-                    "inputs": {
-                        "__defaults": [],
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-00d1163268bc46892"
-                    },
-                    "outputs": {
-                        "gatewayId": "",
-                        "id": "rtbassoc-004668d33c001b3f3",
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-00d1163268bc46892"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2d"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "routeTableId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
-                        ],
-                        "subnetId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2d"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-public-2b",
-                    "custom": true,
-                    "id": "rtbassoc-0f6e52a184990b753",
-                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
-                    "inputs": {
-                        "__defaults": [],
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-076d6f59b21a40709"
-                    },
-                    "outputs": {
-                        "gatewayId": "",
-                        "id": "rtbassoc-0f6e52a184990b753",
-                        "routeTableId": "rtb-0f8a4e0b50a17d72a",
-                        "subnetId": "subnet-076d6f59b21a40709"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2b"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "routeTableId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-public"
-                        ],
-                        "subnetId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-public-2b"
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2a"
                         ]
                     },
                     "sequenceNumber": 1
@@ -2746,316 +2695,6 @@
                         "subnetId": [
                             "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2d"
                         ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-iac-opal-fedramp/rtacc-private-2a",
-                    "custom": true,
-                    "id": "rtbassoc-0798edc24114ae696",
-                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
-                    "inputs": {
-                        "__defaults": [],
-                        "routeTableId": "rtb-0ace991920c436a45",
-                        "subnetId": "subnet-070d18b4adbc63332"
-                    },
-                    "outputs": {
-                        "gatewayId": "",
-                        "id": "rtbassoc-0798edc24114ae696",
-                        "routeTableId": "rtb-0ace991920c436a45",
-                        "subnetId": "subnet-070d18b4adbc63332"
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-private-2a",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2a"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "routeTableId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-iac-opal-fedramp/rt-private-2a"
-                        ],
-                        "subnetId": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2a"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/launchTemplate:LaunchTemplate::dev-iac-opal-fedramp-nodegroup-ng-55b96ffa",
-                    "custom": true,
-                    "id": "lt-0bbbbb7e2f6378c8a",
-                    "type": "aws:ec2/launchTemplate:LaunchTemplate",
-                    "inputs": {
-                        "__defaults": [
-                            "name"
-                        ],
-                        "blockDeviceMappings": [
-                            {
-                                "__defaults": [],
-                                "deviceName": "/dev/xvda",
-                                "ebs": {
-                                    "__defaults": [],
-                                    "volumeSize": 80,
-                                    "volumeType": "gp3"
-                                }
-                            }
-                        ],
-                        "name": "dev-iac-opal-fedramp-nodegroup-ng-55b96ffa-6ed49cd",
-                        "tagSpecifications": [
-                            {
-                                "__defaults": [],
-                                "resourceType": "instance",
-                                "tags": {
-                                    "Name": "dev-iac-opal-fedramp-ng-55b96ffa-Node",
-                                    "__defaults": [],
-                                    "nodegroup-name": "ng-55b96ffa",
-                                    "nodegroup-type": "managed"
-                                }
-                            }
-                        ],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-lt",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        },
-                        "vpcSecurityGroupIds": [
-                            "sg-0b4dcda5c80da2b66"
-                        ]
-                    },
-                    "outputs": {
-                        "arn": "arn:aws:ec2:us-west-2:281939258594:launch-template/lt-0bbbbb7e2f6378c8a",
-                        "blockDeviceMappings": [
-                            {
-                                "deviceName": "/dev/xvda",
-                                "ebs": {
-                                    "deleteOnTermination": "",
-                                    "encrypted": "",
-                                    "iops": 0,
-                                    "kmsKeyId": "",
-                                    "snapshotId": "",
-                                    "throughput": 0,
-                                    "volumeSize": 80,
-                                    "volumeType": "gp3"
-                                },
-                                "noDevice": "",
-                                "virtualName": ""
-                            }
-                        ],
-                        "capacityReservationSpecification": null,
-                        "cpuOptions": null,
-                        "defaultVersion": 1,
-                        "description": "",
-                        "disableApiTermination": false,
-                        "ebsOptimized": "",
-                        "elasticGpuSpecifications": [],
-                        "elasticInferenceAccelerator": null,
-                        "enclaveOptions": null,
-                        "hibernationOptions": null,
-                        "iamInstanceProfile": null,
-                        "id": "lt-0bbbbb7e2f6378c8a",
-                        "imageId": "",
-                        "instanceInitiatedShutdownBehavior": "",
-                        "instanceMarketOptions": null,
-                        "instanceRequirements": null,
-                        "instanceType": "",
-                        "kernelId": "",
-                        "keyName": "",
-                        "latestVersion": 1,
-                        "licenseSpecifications": [],
-                        "maintenanceOptions": null,
-                        "metadataOptions": null,
-                        "monitoring": null,
-                        "name": "dev-iac-opal-fedramp-nodegroup-ng-55b96ffa-6ed49cd",
-                        "namePrefix": "",
-                        "networkInterfaces": [],
-                        "placement": null,
-                        "privateDnsNameOptions": null,
-                        "ramDiskId": "",
-                        "securityGroupNames": [],
-                        "tagSpecifications": [
-                            {
-                                "resourceType": "instance",
-                                "tags": {
-                                    "Name": "dev-iac-opal-fedramp-ng-55b96ffa-Node",
-                                    "nodegroup-name": "ng-55b96ffa",
-                                    "nodegroup-type": "managed"
-                                }
-                            }
-                        ],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-lt",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "dev-iac-opal-fedramp-lt",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "userData": "",
-                        "vpcSecurityGroupIds": [
-                            "sg-0b4dcda5c80da2b66"
-                        ]
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "blockDeviceMappings": null,
-                        "tagSpecifications": null,
-                        "tags": null,
-                        "vpcSecurityGroupIds": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
-                        ]
-                    },
-                    "sequenceNumber": 1
-                },
-                {
-                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:eks/nodeGroup:NodeGroup::ng-55b96ffa",
-                    "custom": true,
-                    "id": "dev-iac-opal-fedramp-eks-cluster:ng-55b96ffa-421fec8",
-                    "type": "aws:eks/nodeGroup:NodeGroup",
-                    "inputs": {
-                        "__defaults": [
-                            "nodeGroupName"
-                        ],
-                        "amiType": "AL2_x86_64",
-                        "capacityType": "ON_DEMAND",
-                        "clusterName": "dev-iac-opal-fedramp-eks-cluster",
-                        "instanceTypes": [
-                            "m5.large"
-                        ],
-                        "labels": {
-                            "__defaults": [],
-                            "cluster-name": "dev-iac-opal-fedramp",
-                            "nodegroup-name": "ng-55b96ffa"
-                        },
-                        "launchTemplate": {
-                            "__defaults": [],
-                            "id": "lt-0bbbbb7e2f6378c8a",
-                            "version": "$Latest"
-                        },
-                        "nodeGroupName": "ng-55b96ffa-421fec8",
-                        "nodeRoleArn": "arn:aws:iam::281939258594:role/dev-iac-opal-fedramp-role-node-group-066dd0a",
-                        "scalingConfig": {
-                            "__defaults": [],
-                            "desiredSize": 2,
-                            "maxSize": 2,
-                            "minSize": 2
-                        },
-                        "subnetIds": [
-                            "subnet-070d18b4adbc63332",
-                            "subnet-07ff1a60ecff598cc",
-                            "subnet-008bcf663d7b7c754",
-                            "subnet-03171fa0482f5f997"
-                        ],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "ng-55b96ffa",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
-                            "__defaults": []
-                        }
-                    },
-                    "outputs": {
-                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":3600000000000,\"update\":3600000000000}}",
-                        "amiType": "AL2_x86_64",
-                        "capacityType": "ON_DEMAND",
-                        "clusterName": "dev-iac-opal-fedramp-eks-cluster",
-                        "id": "dev-iac-opal-fedramp-eks-cluster:ng-55b96ffa-421fec8",
-                        "instanceTypes": [
-                            "m5.large"
-                        ],
-                        "labels": {
-                            "cluster-name": "dev-iac-opal-fedramp",
-                            "nodegroup-name": "ng-55b96ffa"
-                        },
-                        "launchTemplate": {
-                            "id": "lt-0bbbbb7e2f6378c8a",
-                            "name": "",
-                            "version": "$Latest"
-                        },
-                        "nodeGroupName": "ng-55b96ffa-421fec8",
-                        "nodeRoleArn": "arn:aws:iam::281939258594:role/dev-iac-opal-fedramp-role-node-group-066dd0a",
-                        "scalingConfig": {
-                            "desiredSize": 2,
-                            "maxSize": 2,
-                            "minSize": 2
-                        },
-                        "subnetIds": [
-                            "subnet-008bcf663d7b7c754",
-                            "subnet-07ff1a60ecff598cc",
-                            "subnet-03171fa0482f5f997",
-                            "subnet-070d18b4adbc63332"
-                        ],
-                        "tags": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "ng-55b96ffa",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        },
-                        "tagsAll": {
-                            "ClusterName": "dev-iac-opal-fedramp-cluster",
-                            "Environment": "dev",
-                            "Name": "ng-55b96ffa",
-                            "Owner": "ceng",
-                            "Project": "iac-opal-fedramp",
-                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
-                        }
-                    },
-                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
-                    "dependencies": [
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:eks/cluster:Cluster::dev-iac-opal-fedramp-eks-cluster",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/launchTemplate:LaunchTemplate::dev-iac-opal-fedramp-nodegroup-ng-55b96ffa",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:iam/role:Role::dev-iac-opal-fedramp-role-node-group",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2a",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2b",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2c",
-                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2d"
-                    ],
-                    "initErrors": [
-                        "creating urn:pulumi:dev::iac-opal-fedramp::aws:eks/nodeGroup:NodeGroup::ng-55b96ffa: 1 error occurred:\n\t* error waiting for EKS Node Group (dev-iac-opal-fedramp-eks-cluster:ng-55b96ffa-421fec8) to create: unexpected state 'CREATE_FAILED', wanted target 'ACTIVE'. last error: 1 error occurred:\n\t* i-09cdc753a9f4a99d3, i-0d83c8cd7a9a1bc62: NodeCreationFailure: Instances failed to join the kubernetes cluster\n\n\n\n"
-                    ],
-                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
-                    "propertyDependencies": {
-                        "amiType": null,
-                        "capacityType": null,
-                        "clusterName": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:eks/cluster:Cluster::dev-iac-opal-fedramp-eks-cluster"
-                        ],
-                        "instanceTypes": null,
-                        "labels": null,
-                        "launchTemplate": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/launchTemplate:LaunchTemplate::dev-iac-opal-fedramp-nodegroup-ng-55b96ffa"
-                        ],
-                        "nodeRoleArn": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:iam/role:Role::dev-iac-opal-fedramp-role-node-group"
-                        ],
-                        "scalingConfig": null,
-                        "subnetIds": [
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2a",
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2b",
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2c",
-                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-iac-opal-fedramp/subnet-private-2d"
-                        ],
-                        "tags": null
                     },
                     "sequenceNumber": 1
                 },
@@ -3198,6 +2837,89 @@
                         "vpcSecurityGroupIds": [
                             "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-iac-opal-fedramp/sg/shared-node-group"
                         ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/role:Role::dev-iac-opal-fedramp-role-node-group",
+                    "custom": true,
+                    "id": "dev-iac-opal-fedramp-role-node-group-066dd0a",
+                    "type": "aws:iam/role:Role",
+                    "inputs": {
+                        "__defaults": [
+                            "forceDetachPolicies",
+                            "maxSessionDuration",
+                            "name",
+                            "path"
+                        ],
+                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+                        "forceDetachPolicies": false,
+                        "managedPolicyArns": [
+                            "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+                            "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+                            "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+                            "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+                        ],
+                        "maxSessionDuration": 3600,
+                        "name": "dev-iac-opal-fedramp-role-node-group-066dd0a",
+                        "path": "/",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp-role-node-group",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85",
+                            "__defaults": []
+                        }
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:iam::281939258594:role/dev-iac-opal-fedramp-role-node-group-066dd0a",
+                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+                        "createDate": "2022-06-13T21:48:35Z",
+                        "description": "",
+                        "forceDetachPolicies": false,
+                        "id": "dev-iac-opal-fedramp-role-node-group-066dd0a",
+                        "inlinePolicies": [
+                            {
+                                "name": "",
+                                "policy": ""
+                            }
+                        ],
+                        "managedPolicyArns": [
+                            "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+                            "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+                            "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+                            "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+                        ],
+                        "maxSessionDuration": 3600,
+                        "name": "dev-iac-opal-fedramp-role-node-group-066dd0a",
+                        "namePrefix": "",
+                        "path": "/",
+                        "tags": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp-role-node-group",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-iac-opal-fedramp-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-iac-opal-fedramp-role-node-group",
+                            "Owner": "ceng",
+                            "Project": "iac-opal-fedramp",
+                            "ProjectId": "55b96ffa-706c-4130-a413-12f49a0b7a85"
+                        },
+                        "uniqueId": "AROAUDJHDVTREW4WWUT74"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::e18b738f-6f65-42dd-8094-6ba4fffeb27b",
+                    "propertyDependencies": {
+                        "assumeRolePolicy": null,
+                        "managedPolicyArns": null,
+                        "tags": null
                     },
                     "sequenceNumber": 1
                 },

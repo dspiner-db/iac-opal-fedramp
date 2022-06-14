@@ -1,0 +1,114 @@
+{
+    "version": 3,
+    "checkpoint": {
+        "stack": "dev",
+        "latest": {
+            "manifest": {
+                "time": "2022-06-13T10:21:38.472601-07:00",
+                "magic": "80eb2eb54399e33107cbb20fd007e6f202ada4644be7743baddcb736a933c255",
+                "version": "v3.33.2"
+            },
+            "secrets_providers": {
+                "type": "passphrase",
+                "state": {
+                    "salt": "v1:kXiQLEK0qbs=:v1:yxs/4f+nRleCBnOw:XoRAbtcOlz+lNDledVh7p/60Zchhyg=="
+                }
+            },
+            "resources": [
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "custom": false,
+                    "type": "pulumi:pulumi:Stack",
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0",
+                    "custom": true,
+                    "id": "8add3880-d18c-41de-8587-abd73e4d9326",
+                    "type": "pulumi:providers:aws",
+                    "inputs": {
+                        "profile": "dev",
+                        "region": "us-west-2",
+                        "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                        "version": "5.7.0"
+                    },
+                    "outputs": {
+                        "profile": "dev",
+                        "region": "us-west-2",
+                        "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                        "version": "5.7.0"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-metrics",
+                    "custom": true,
+                    "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                    "type": "aws:iam/policy:Policy",
+                    "inputs": {
+                        "__defaults": [
+                            "path"
+                        ],
+                        "description": "CloudWatch Metrics",
+                        "name": "dev-opal-cluster-policy-metrics",
+                        "path": "/",
+                        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                        "description": "CloudWatch Metrics",
+                        "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                        "name": "dev-opal-cluster-policy-metrics",
+                        "path": "/",
+                        "policy": "{\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+                        "policyId": "ANPAUDJHDVTRFQDUIPPCY",
+                        "tags": {},
+                        "tagsAll": {}
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "description": null,
+                        "name": null,
+                        "policy": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-elb",
+                    "custom": true,
+                    "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                    "type": "aws:iam/policy:Policy",
+                    "inputs": {
+                        "__defaults": [
+                            "path"
+                        ],
+                        "description": "ELB Permissions",
+                        "name": "dev-opal-cluster-policy-elb",
+                        "path": "/",
+                        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                        "description": "ELB Permissions",
+                        "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                        "name": "dev-opal-cluster-policy-elb",
+                        "path": "/",
+                        "policy": "{\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+                        "policyId": "ANPAUDJHDVTRKPQ5KHRUY",
+                        "tags": {},
+                        "tagsAll": {}
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "description": null,
+                        "name": null,
+                        "policy": null
+                    },
+                    "sequenceNumber": 1
+                }
+            ]
+        }
+    }
+}

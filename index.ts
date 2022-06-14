@@ -49,10 +49,10 @@ function getSubnets(cidr: string, subnetNetmask: string): ICalculatorSubnet[] {
 
 }
 
-async function BuildNetwork(isCluster: boolean){
+async function BuildNetwork(isCluster: boolean): Promise<Network> {
     // Get the available subnets
     const vpcSubnets = getSubnets(CIDR, SUBNET_NETMASK.toString())
-    // console.log(`vpcSubnets: ${JSON.stringify(vpcSubnets, null, 2)}`)
+
     // Get the Available Availability Zones
     const azs = await aws.getAvailabilityZones({
         state: "available"
@@ -186,25 +186,417 @@ async function BuildNetwork(isCluster: boolean){
         })
     })
 
+    return {
+        vpc,
+        igw: clusterIGW,
+        nat: natGateway,
+        subnets: {
+            public: publicSubnets,
+            private: privateSubnets
+        }
+    }
 }
 
-async function SetupSecurityGroups(){
+export interface Network {
+    vpc: aws.ec2.Vpc
+    igw: aws.ec2.InternetGateway
+    nat: aws.ec2.NatGateway
+    subnets: {
+        public: { subnet: aws.ec2.Subnet, az: string}[]
+        private: { subnet: aws.ec2.Subnet, az: string}[]
+    }
+}
+
+export interface AccessIAM {
+    clusterRoleArn: string | pulumi.Output<string>
+    securityGroups: {
+        [key: string]: aws.ec2.SecurityGroup
+    }
+}
+async function AccessIAM(accountId: string ,network: Network, clusterRoleArn?: aws.ARN, database?: { name: string, port: number }): Promise<AccessIAM> {
+
+    let sgBaseName = `${BASE_NAME}/sg`
+    let controlPlaneSG_name = `${sgBaseName}/control-plane`
+    let sharedNodeSG_name = `${sgBaseName}/shared-node-group`
+
+    let result: AccessIAM = {
+        clusterRoleArn: "",
+        securityGroups: {
+            controlPlane: new aws.ec2.SecurityGroup(controlPlaneSG_name, {
+                vpcId: network.vpc.id,
+                description: 'Communication between the control plane and worker nodegroups',
+                tags: createTags(controlPlaneSG_name)
+            }),
+            node: new aws.ec2.SecurityGroup(sharedNodeSG_name, {
+                vpcId: network.vpc.id,
+                description: 'Communication between all nodes in the cluster',
+                tags: createTags(sharedNodeSG_name)
+            })
+        }
+    }
+
+    // ------ CONTROL PLANE ------ //
+    //Allow Nodes to Talk to Control Plane
+    new aws.ec2.SecurityGroupRule(`cluster-ingress-https-nodes`, {
+        type: 'ingress',
+        toPort: 443,
+        protocol: 'tcp',
+        fromPort: 443,
+        securityGroupId: result.securityGroups.controlPlane.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // Allow Control Plane to Talk to nodes
+    new aws.ec2.SecurityGroupRule(`cluster-egress-https-nodes`, {
+        type: 'egress',
+        toPort: 443,
+        protocol: 'tcp',
+        fromPort: 443,
+        securityGroupId: result.securityGroups.controlPlane.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // Allow Control Plane to Talk to nodes
+    new aws.ec2.SecurityGroupRule(`cluster-egress-k8-api-nodes`, {
+        type: 'egress',
+        toPort: 10250,
+        protocol: 'tcp',
+        fromPort: 10250,
+        securityGroupId: result.securityGroups.controlPlane.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // ------ Nodes ------ //
+
+    // TCP: DNS -> Nodes
+    new aws.ec2.SecurityGroupRule(`node-ingress-tcp-dns`, {
+        type: 'ingress',
+        toPort: 53,
+        protocol: 'tcp',
+        fromPort: 53,
+        securityGroupId: result.securityGroups.node.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // TCP: Nodes -> DNS
+    new aws.ec2.SecurityGroupRule(`node-egress-tcp-dns`, {
+        type: 'egress',
+        toPort: 53,
+        protocol: 'tcp',
+        fromPort: 53,
+        securityGroupId: result.securityGroups.node.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // UDP: DNS -> Nodes
+    new aws.ec2.SecurityGroupRule(`node-ingress-udp-dns`, {
+        type: 'ingress',
+        toPort: 53,
+        protocol: 'udp',
+        fromPort: 53,
+        securityGroupId: result.securityGroups.node.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // UDP: Nodes -> DNS
+    new aws.ec2.SecurityGroupRule(`node-egress-udp-dns`, {
+        type: 'egress',
+        toPort: 53,
+        protocol: 'udp',
+        fromPort: 53,
+        securityGroupId: result.securityGroups.node.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // Nodes -> Control Plane
+    new aws.ec2.SecurityGroupRule(`node-egress-https-cluster`, {
+        type: 'egress',
+        protocol: 'tcp',
+        toPort: 443,
+        fromPort: 443,
+        securityGroupId: result.securityGroups.node.id,
+        sourceSecurityGroupId: result.securityGroups.node.id
+    })
+
+    // Cluster HTTPS -> Nodes
+    new aws.ec2.SecurityGroupRule(`node-ingress-https-cluster`, {
+        type: 'ingress',
+        protocol: 'tcp',
+        toPort: 443,
+        fromPort: 443,
+        securityGroupId: result.securityGroups.node.id,
+        sourceSecurityGroupId: result.securityGroups.controlPlane.id
+    })
+
+    // Cluster API -> Node
+    new aws.ec2.SecurityGroupRule(`node-ingress-cluster-api`, {
+        type: 'ingress',
+        protocol: 'tcp',
+        toPort: 10250,
+        fromPort: 10250,
+        securityGroupId: result.securityGroups.node.id,
+        sourceSecurityGroupId: result.securityGroups.controlPlane.id
+    })
+
+    // TCP: Nodes -> NTP
+    new aws.ec2.SecurityGroupRule(`node-egress-tcp-ntp`, {
+        type: 'egress',
+        protocol: 'tcp',
+        toPort: 123,
+        fromPort: 123,
+        securityGroupId: result.securityGroups.node.id,
+        cidrBlocks: ['0.0.0.0/0']
+    })
+    // UDP: Nodes -> NTP
+    new aws.ec2.SecurityGroupRule(`node-egress-udp-ntp`, {
+        type: 'egress',
+        protocol: 'udp',
+        toPort: 123,
+        fromPort: 123,
+        securityGroupId: result.securityGroups.node.id,
+        cidrBlocks: ['0.0.0.0/0']
+    })
+
+    if(!clusterRoleArn){
+        let clusterRole_name = `${BASE_NAME}-role-cluster-service`
+
+        const clusterRole = new aws.iam.Role(clusterRole_name, {
+            assumeRolePolicy: JSON.stringify({
+                Version: "2012-10-17",
+                Statement: [
+                    {
+                        Action: "sts:AssumeRole",
+                        Principal: { 
+                            Service: "eks.amazonaws.com"
+                        },
+                        Effect: "Allow"
+                    }
+                ]
+            }),
+            inlinePolicies: [
+                {
+                    name: `${BASE_NAME}-policy-elb`,
+                    policy: JSON.stringify({
+                        Version: "2012-10-17",
+                        Statement: [
+                            {
+                                Action: [
+                                    "ec2:DescribeAccountAttributes",
+                                    "ec2:DescribeAddress",
+                                    "ec2:DescribeInternetGateways"
+                                ],
+                                Resource: "*",
+                                Effect: "Allow"
+                            }
+                        ]
+                    })
+                },
+                {
+                    name: `${BASE_NAME}-policy-metrics`,
+                    policy: JSON.stringify({
+                        Version: "2012-10-17",
+                        Statement: [
+                            {
+                                Action: [
+                                    "cloudwatch:PutMetricData",
+                                ],
+                                Resource: "*",
+                                Effect: "Allow"
+                            }
+                        ]
+                    })
+                }
+            ],
+            managedPolicyArns: [ 
+                `arn:aws:iam::aws:policy/AmazonEKSClusterPolicy`,
+                `arn:aws:iam::aws:policy/AmazonEKSVPCResourceController`
+            ],
+            tags: createTags(clusterRole_name)
+        })
+
+        result.clusterRoleArn = clusterRole.arn
+    }
+    else{
+        result.clusterRoleArn = clusterRoleArn
+    }
+
+    if(database){
+        let dbSG_name = `${sgBaseName}/db`
+        result.securityGroups['database' as keyof typeof result.securityGroups] = new aws.ec2.SecurityGroup(dbSG_name, {
+            vpcId: network.vpc.id,
+            description: `Communication between Database on EKS nodegroups`,
+            ingress: [
+                {
+                    fromPort: database.port,
+                    toPort: database.port,
+                    protocol: 'tcp',
+                    securityGroups: [ result.securityGroups.node.id ]
+                }
+            ],
+            egress: [
+                {
+                    fromPort: database.port,
+                    toPort: database.port,
+                    protocol: 'tcp',
+                    securityGroups: [ result.securityGroups.node.id ]
+                }
+            ],
+            tags: createTags(dbSG_name)
+        })
+
+        // Database -> Nodes
+        new aws.ec2.SecurityGroupRule(`node-ingress-database`, {
+            type: 'ingress',
+            protocol: 'tcp',
+            toPort: database.port,
+            fromPort: database.port,
+            securityGroupId: result.securityGroups.node.id,
+            sourceSecurityGroupId: result.securityGroups.database.id
+        })
+
+        // Nodes -> Database
+        new aws.ec2.SecurityGroupRule(`node-egress-database`, {
+            type: 'egress',
+            protocol: 'tcp',
+            toPort: database.port,
+            fromPort: database.port,
+            securityGroupId: result.securityGroups.node.id,
+            sourceSecurityGroupId: result.securityGroups.database.id
+        })
+
+    }
+
+    return result
+    
+}
+
+async function CreateCluster(network: Network, iam: AccessIAM){
+
+    let clusterKey_name = `${BASE_NAME}/key`
+    const clusterKey = new aws.kms.Key(clusterKey_name,{
+        description: "EKS Secret Encryption Key",
+        deletionWindowInDays: 7,
+        enableKeyRotation: true,
+        tags: createTags(clusterKey_name)
+    })
+
+    let eksCluster_name = `${BASE_NAME}-eks-cluster`
+    const eksCluster = new aws.eks.Cluster(eksCluster_name, {
+        name:eksCluster_name,
+        roleArn: iam.clusterRoleArn,
+        version: "1.22",
+        vpcConfig: {
+            subnetIds: network.subnets.private.map(s => s.subnet.id),
+            securityGroupIds: [ iam.securityGroups.controlPlane.id ],
+            endpointPrivateAccess: true,
+            endpointPublicAccess: true
+        },
+        enabledClusterLogTypes: ["api","audit","controllerManager"],
+        encryptionConfig: {
+            provider: {
+                keyArn: clusterKey.arn
+            },
+            resources: ["secrets"]
+            
+        },
+        tags: createTags(eksCluster_name)
+        
+    })
+
+    return eksCluster
+
+}
+
+async function EC2Nodes(cluster: aws.eks.Cluster, iam: AccessIAM, network: Network){
+
+    let nodeSuffix = PROJECT_ID.split('-')[0]
+    let nodeGroupRole = new aws.iam.Role(`${BASE_NAME}-role-node-group`,{
+        assumeRolePolicy: JSON.stringify({
+            Version: "2012-10-17",
+            Statement: [
+                {
+                    Effect: "Allow",
+                    Principal: {
+                        Service: "ec2.amazonaws.com"
+                    },
+                    Action: "sts:AssumeRole"
+                }
+            ]
+        }),
+        managedPolicyArns: [
+            "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+            "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+            "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+            "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+        ],
+        tags: createTags(`${BASE_NAME}-role-node-group`)
+    })
+
+    const launchTemplate = new aws.ec2.LaunchTemplate(`${BASE_NAME}-nodegroup-ng-${nodeSuffix}`, {
+        vpcSecurityGroupIds: [ iam.securityGroups.node.id ],
+        blockDeviceMappings: [
+            {
+                deviceName: "/dev/xvda",
+                ebs: {
+                    volumeSize: 80,
+                    volumeType: 'gp3'
+                }
+            }
+        ],
+        tagSpecifications: [
+            {
+                resourceType: "instance",
+                tags: {
+                    'Name': `${BASE_NAME}-ng-${nodeSuffix}-Node`,
+                    'nodegroup-name': `ng-${nodeSuffix}`,
+                    'nodegroup-type': 'managed',
+                    [`kubernetes.io/cluster/${BASE_NAME}`]: "owned",
+                    'eks:nodegroup-name': `ng-${nodeSuffix}`
+                }
+            }
+        ],
+        tags: createTags(`${BASE_NAME}-lt`)
+    })
+
+    const clusterNodeGroup = new aws.eks.NodeGroup(`ng-${nodeSuffix}`, {
+        clusterName: cluster.name,
+        nodeRoleArn: nodeGroupRole.arn,
+        subnetIds: network.subnets.private.map(s => s.subnet.id),
+        scalingConfig: {
+            desiredSize: 2,
+            maxSize: 2,
+            minSize: 2
+        },
+        amiType: 'AL2_x86_64',
+        instanceTypes: [ 'm5.large' ],
+        launchTemplate: {
+            version: "$Latest",
+            id: launchTemplate.id
+        },
+        capacityType: 'ON_DEMAND',
+        labels: {
+            'cluster-name': `${BASE_NAME}`,
+            'nodegroup-name': `ng-${nodeSuffix}`
+        },
+        tags: createTags(`ng-${nodeSuffix}`)
+    })
+
+
 
 }
 
 async function main(){
 
-    const identity = await aws.getCallerIdentity({
+    const identity = await aws.getCallerIdentity()
 
-    })
+    const network = await BuildNetwork(true)
 
-    // const clusterAdminRole = aws.iam.getRole({
-    //     name: ``
-    // })
+    const IAM: AccessIAM = await AccessIAM(identity.accountId, network)
 
-    await BuildNetwork(true)
+    const Cluster = await CreateCluster(network, IAM)
 
-    await SetupSecurityGroups()
+    const EC2 = await EC2Nodes(Cluster, IAM, network)
+
 
 }
 

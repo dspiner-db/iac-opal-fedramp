@@ -1,0 +1,2512 @@
+{
+    "version": 3,
+    "checkpoint": {
+        "stack": "dev",
+        "latest": {
+            "manifest": {
+                "time": "2022-06-13T10:14:50.692848-07:00",
+                "magic": "80eb2eb54399e33107cbb20fd007e6f202ada4644be7743baddcb736a933c255",
+                "version": "v3.33.2"
+            },
+            "secrets_providers": {
+                "type": "passphrase",
+                "state": {
+                    "salt": "v1:kXiQLEK0qbs=:v1:yxs/4f+nRleCBnOw:XoRAbtcOlz+lNDledVh7p/60Zchhyg=="
+                }
+            },
+            "resources": [
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "custom": false,
+                    "type": "pulumi:pulumi:Stack",
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0",
+                    "custom": true,
+                    "id": "8add3880-d18c-41de-8587-abd73e4d9326",
+                    "type": "pulumi:providers:aws",
+                    "inputs": {
+                        "profile": "dev",
+                        "region": "us-west-2",
+                        "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                        "version": "5.7.0"
+                    },
+                    "outputs": {
+                        "profile": "dev",
+                        "region": "us-west-2",
+                        "sharedCredentialsFile": "/Users/derek.spiner/.aws/credentials",
+                        "version": "5.7.0"
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-metrics",
+                    "custom": true,
+                    "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                    "type": "aws:iam/policy:Policy",
+                    "inputs": {
+                        "__defaults": [
+                            "path"
+                        ],
+                        "description": "CloudWatch Metrics",
+                        "name": "dev-opal-cluster-policy-metrics",
+                        "path": "/",
+                        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                        "description": "CloudWatch Metrics",
+                        "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                        "name": "dev-opal-cluster-policy-metrics",
+                        "path": "/",
+                        "policy": "{\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+                        "policyId": "ANPAUDJHDVTRFQDUIPPCY",
+                        "tags": {},
+                        "tagsAll": {}
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "description": null,
+                        "name": null,
+                        "policy": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-opal-cluster/nat/eip",
+                    "custom": true,
+                    "id": "eipalloc-08f64844743064739",
+                    "type": "aws:ec2/eip:Eip",
+                    "inputs": {
+                        "__defaults": [],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/nat/eip",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpc": true
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":180000000000,\"read\":900000000000,\"update\":300000000000}}",
+                        "allocationId": "eipalloc-08f64844743064739",
+                        "associationId": "",
+                        "carrierIp": "",
+                        "customerOwnedIp": "",
+                        "customerOwnedIpv4Pool": "",
+                        "domain": "vpc",
+                        "id": "eipalloc-08f64844743064739",
+                        "instance": "",
+                        "networkBorderGroup": "us-west-2",
+                        "networkInterface": "",
+                        "privateIp": "",
+                        "publicDns": "ec2-54-214-156-134.us-west-2.compute.amazonaws.com",
+                        "publicIp": "54.214.156.134",
+                        "publicIpv4Pool": "amazon",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/nat/eip",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/nat/eip",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpc": true
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "tags": null,
+                        "vpc": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc",
+                    "custom": true,
+                    "id": "vpc-0d07697f9ca0b153b",
+                    "type": "aws:ec2/vpc:Vpc",
+                    "inputs": {
+                        "__defaults": [
+                            "enableDnsSupport",
+                            "instanceTenancy"
+                        ],
+                        "cidrBlock": "10.0.0.0/16",
+                        "enableDnsHostnames": true,
+                        "enableDnsSupport": true,
+                        "instanceTenancy": "default",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/vpc",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        }
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:vpc/vpc-0d07697f9ca0b153b",
+                        "assignGeneratedIpv6CidrBlock": false,
+                        "cidrBlock": "10.0.0.0/16",
+                        "defaultNetworkAclId": "acl-0a3114ac73f2416e2",
+                        "defaultRouteTableId": "rtb-01e8db5374d57e7e5",
+                        "defaultSecurityGroupId": "sg-085a631256d10ab89",
+                        "dhcpOptionsId": "dopt-093c67cfd1c1d434a",
+                        "enableClassiclink": false,
+                        "enableClassiclinkDnsSupport": false,
+                        "enableDnsHostnames": true,
+                        "enableDnsSupport": true,
+                        "id": "vpc-0d07697f9ca0b153b",
+                        "instanceTenancy": "default",
+                        "ipv6AssociationId": "",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockNetworkBorderGroup": "",
+                        "ipv6IpamPoolId": "",
+                        "ipv6NetmaskLength": 0,
+                        "mainRouteTableId": "rtb-01e8db5374d57e7e5",
+                        "ownerId": "281939258594",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/vpc",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/vpc",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        }
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "cidrBlock": null,
+                        "enableDnsHostnames": null,
+                        "tags": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-elb",
+                    "custom": true,
+                    "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                    "type": "aws:iam/policy:Policy",
+                    "inputs": {
+                        "__defaults": [
+                            "path"
+                        ],
+                        "description": "ELB Permissions",
+                        "name": "dev-opal-cluster-policy-elb",
+                        "path": "/",
+                        "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Resource\":\"*\",\"Effect\":\"Allow\"}]}"
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                        "description": "ELB Permissions",
+                        "id": "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                        "name": "dev-opal-cluster-policy-elb",
+                        "path": "/",
+                        "policy": "{\"Statement\":[{\"Action\":[\"ec2:DescribeAccountAttributes\",\"ec2:DescribeAddress\",\"ec2:DescribeInternetGateways\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+                        "policyId": "ANPAUDJHDVTRKPQ5KHRUY",
+                        "tags": {},
+                        "tagsAll": {}
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "description": null,
+                        "name": null,
+                        "policy": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2b",
+                    "custom": true,
+                    "id": "subnet-02b7283366af6c773",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2b",
+                        "cidrBlock": "10.0.96.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-02b7283366af6c773",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2b",
+                        "availabilityZoneId": "usw2-az2",
+                        "cidrBlock": "10.0.96.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-02b7283366af6c773",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2c",
+                    "custom": true,
+                    "id": "subnet-0443cdfa25ac45e95",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2c",
+                        "cidrBlock": "10.0.128.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-0443cdfa25ac45e95",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2c",
+                        "availabilityZoneId": "usw2-az3",
+                        "cidrBlock": "10.0.128.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-0443cdfa25ac45e95",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2d",
+                    "custom": true,
+                    "id": "subnet-03b9d1b7d349b885c",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "cidrBlock": "10.0.224.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-03b9d1b7d349b885c",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "availabilityZoneId": "usw2-az4",
+                        "cidrBlock": "10.0.224.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-03b9d1b7d349b885c",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2d",
+                    "custom": true,
+                    "id": "subnet-0f8f696561644975a",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "cidrBlock": "10.0.192.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-0f8f696561644975a",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2d",
+                        "availabilityZoneId": "usw2-az4",
+                        "cidrBlock": "10.0.192.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-0f8f696561644975a",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group",
+                    "custom": true,
+                    "id": "sg-0475c60df27451fb0",
+                    "type": "aws:ec2/securityGroup:SecurityGroup",
+                    "inputs": {
+                        "__defaults": [
+                            "name",
+                            "revokeRulesOnDelete"
+                        ],
+                        "description": "Communication between all nodes in the cluster",
+                        "name": "dev-opal-cluster/sg//shared-node-group-0287bec",
+                        "revokeRulesOnDelete": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/sg//shared-node-group",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:security-group/sg-0475c60df27451fb0",
+                        "description": "Communication between all nodes in the cluster",
+                        "egress": [],
+                        "id": "sg-0475c60df27451fb0",
+                        "ingress": [],
+                        "name": "dev-opal-cluster/sg//shared-node-group-0287bec",
+                        "namePrefix": "",
+                        "ownerId": "281939258594",
+                        "revokeRulesOnDelete": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/sg//shared-node-group",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/sg//shared-node-group",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "description": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2a",
+                    "custom": true,
+                    "id": "subnet-062e33b1cf2e7ce8a",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2a",
+                        "cidrBlock": "10.0.0.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-062e33b1cf2e7ce8a",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2a",
+                        "availabilityZoneId": "usw2-az1",
+                        "cidrBlock": "10.0.0.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-062e33b1cf2e7ce8a",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2c",
+                    "custom": true,
+                    "id": "subnet-06a4e6e0ad0279b36",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2c",
+                        "cidrBlock": "10.0.160.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-06a4e6e0ad0279b36",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2c",
+                        "availabilityZoneId": "usw2-az3",
+                        "cidrBlock": "10.0.160.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-06a4e6e0ad0279b36",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2b",
+                    "custom": true,
+                    "id": "subnet-013c77eb83d7c959d",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2b",
+                        "cidrBlock": "10.0.64.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-013c77eb83d7c959d",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2b",
+                        "availabilityZoneId": "usw2-az2",
+                        "cidrBlock": "10.0.64.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-013c77eb83d7c959d",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-private-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/internal-elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane",
+                    "custom": true,
+                    "id": "sg-02d33ff9d952180b9",
+                    "type": "aws:ec2/securityGroup:SecurityGroup",
+                    "inputs": {
+                        "__defaults": [
+                            "name",
+                            "revokeRulesOnDelete"
+                        ],
+                        "description": "Communication between the control plane and worker nodegroups",
+                        "name": "dev-opal-cluster/sg//control-plane-b64aa05",
+                        "revokeRulesOnDelete": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/sg//control-plane",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:security-group/sg-02d33ff9d952180b9",
+                        "description": "Communication between the control plane and worker nodegroups",
+                        "egress": [],
+                        "id": "sg-02d33ff9d952180b9",
+                        "ingress": [],
+                        "name": "dev-opal-cluster/sg//control-plane-b64aa05",
+                        "namePrefix": "",
+                        "ownerId": "281939258594",
+                        "revokeRulesOnDelete": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/sg//control-plane",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/sg//control-plane",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "description": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/internetGateway:InternetGateway::dev-opal-cluster/igw",
+                    "custom": true,
+                    "id": "igw-04fbe03a85fd6a1e0",
+                    "type": "aws:ec2/internetGateway:InternetGateway",
+                    "inputs": {
+                        "__defaults": [],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/igw",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:internet-gateway/igw-04fbe03a85fd6a1e0",
+                        "id": "igw-04fbe03a85fd6a1e0",
+                        "ownerId": "281939258594",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/igw",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/igw",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2a",
+                    "custom": true,
+                    "id": "subnet-0bc3c22dbaa3f66fc",
+                    "type": "aws:ec2/subnet:Subnet",
+                    "inputs": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2a",
+                        "cidrBlock": "10.0.32.0/19",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": [],
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:subnet/subnet-0bc3c22dbaa3f66fc",
+                        "assignIpv6AddressOnCreation": false,
+                        "availabilityZone": "us-west-2a",
+                        "availabilityZoneId": "usw2-az1",
+                        "cidrBlock": "10.0.32.0/19",
+                        "customerOwnedIpv4Pool": "",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "id": "subnet-0bc3c22dbaa3f66fc",
+                        "ipv6CidrBlock": "",
+                        "ipv6CidrBlockAssociationId": "",
+                        "ipv6Native": false,
+                        "mapCustomerOwnedIpOnLaunch": false,
+                        "mapPublicIpOnLaunch": false,
+                        "outpostArn": "",
+                        "ownerId": "281939258594",
+                        "privateDnsHostnameTypeOnLaunch": "ip-name",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/subnet-public-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "kubernetes.io/cluster/dev-opal-cluster": "shared",
+                            "kubernetes.io/role/elb": "1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "availabilityZone": null,
+                        "cidrBlock": null,
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-udp-ntp",
+                    "custom": true,
+                    "id": "sgrule-3933320176",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "cidrBlocks": [
+                            "0.0.0.0/0"
+                        ],
+                        "fromPort": 123,
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 123,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "cidrBlocks": [
+                            "0.0.0.0/0"
+                        ],
+                        "fromPort": 123,
+                        "id": "sgrule-3933320176",
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "toPort": 123,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "cidrBlocks": null,
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-udp-dns",
+                    "custom": true,
+                    "id": "sgrule-2435199808",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 53,
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 53,
+                        "id": "sgrule-2435199808",
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-ingress-tcp-dns",
+                    "custom": true,
+                    "id": "sgrule-2461145434",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 53,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "ingress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 53,
+                        "id": "sgrule-2461145434",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "ingress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-tcp-ntp",
+                    "custom": true,
+                    "id": "sgrule-2498729725",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "cidrBlocks": [
+                            "0.0.0.0/0"
+                        ],
+                        "fromPort": 123,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 123,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "cidrBlocks": [
+                            "0.0.0.0/0"
+                        ],
+                        "fromPort": 123,
+                        "id": "sgrule-2498729725",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "toPort": 123,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "cidrBlocks": null,
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-tcp-dns",
+                    "custom": true,
+                    "id": "sgrule-524398886",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 53,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 53,
+                        "id": "sgrule-524398886",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-egress-https-cluster",
+                    "custom": true,
+                    "id": "sgrule-3850925585",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 443,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 443,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 443,
+                        "id": "sgrule-3850925585",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 443,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-ingress-udp-dns",
+                    "custom": true,
+                    "id": "sgrule-921549493",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 53,
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "ingress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 53,
+                        "id": "sgrule-921549493",
+                        "protocol": "udp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 53,
+                        "type": "ingress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::cluster-ingress-https-nodes",
+                    "custom": true,
+                    "id": "sgrule-48727017",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 443,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-02d33ff9d952180b9",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 443,
+                        "type": "ingress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 443,
+                        "id": "sgrule-48727017",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-02d33ff9d952180b9",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 443,
+                        "type": "ingress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::cluster-egress-k8-api-nodes",
+                    "custom": true,
+                    "id": "sgrule-3479938839",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 10250,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-02d33ff9d952180b9",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 10250,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 10250,
+                        "id": "sgrule-3479938839",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-02d33ff9d952180b9",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 10250,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-ingress-cluster-api",
+                    "custom": true,
+                    "id": "sgrule-1175730725",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 10250,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "sourceSecurityGroupId": "sg-02d33ff9d952180b9",
+                        "toPort": 10250,
+                        "type": "ingress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 10250,
+                        "id": "sgrule-1175730725",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-02d33ff9d952180b9",
+                        "toPort": 10250,
+                        "type": "ingress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::node-ingress-https-cluster",
+                    "custom": true,
+                    "id": "sgrule-4016802839",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 443,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "sourceSecurityGroupId": "sg-02d33ff9d952180b9",
+                        "toPort": 443,
+                        "type": "ingress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 443,
+                        "id": "sgrule-4016802839",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-0475c60df27451fb0",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-02d33ff9d952180b9",
+                        "toPort": 443,
+                        "type": "ingress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroupRule:SecurityGroupRule::cluster-egress-https-nodes",
+                    "custom": true,
+                    "id": "sgrule-4123431721",
+                    "type": "aws:ec2/securityGroupRule:SecurityGroupRule",
+                    "inputs": {
+                        "__defaults": [],
+                        "fromPort": 443,
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-02d33ff9d952180b9",
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 443,
+                        "type": "egress"
+                    },
+                    "outputs": {
+                        "__meta": "{\"schema_version\":\"2\"}",
+                        "fromPort": 443,
+                        "id": "sgrule-4123431721",
+                        "protocol": "tcp",
+                        "securityGroupId": "sg-02d33ff9d952180b9",
+                        "self": false,
+                        "sourceSecurityGroupId": "sg-0475c60df27451fb0",
+                        "toPort": 443,
+                        "type": "egress"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "fromPort": null,
+                        "protocol": null,
+                        "securityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//control-plane"
+                        ],
+                        "sourceSecurityGroupId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/securityGroup:SecurityGroup::dev-opal-cluster/sg//shared-node-group"
+                        ],
+                        "toPort": null,
+                        "type": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public",
+                    "custom": true,
+                    "id": "rtb-0e55c54808433092e",
+                    "type": "aws:ec2/routeTable:RouteTable",
+                    "inputs": {
+                        "__defaults": [],
+                        "routes": [
+                            {
+                                "__defaults": [],
+                                "cidrBlock": "0.0.0.0/0",
+                                "gatewayId": "igw-04fbe03a85fd6a1e0"
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-public",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:route-table/rtb-0e55c54808433092e",
+                        "id": "rtb-0e55c54808433092e",
+                        "ownerId": "281939258594",
+                        "propagatingVgws": [],
+                        "routes": [
+                            {
+                                "carrierGatewayId": "",
+                                "cidrBlock": "0.0.0.0/0",
+                                "coreNetworkArn": "",
+                                "destinationPrefixListId": "",
+                                "egressOnlyGatewayId": "",
+                                "gatewayId": "igw-04fbe03a85fd6a1e0",
+                                "instanceId": "",
+                                "ipv6CidrBlock": "",
+                                "localGatewayId": "",
+                                "natGatewayId": "",
+                                "networkInterfaceId": "",
+                                "transitGatewayId": "",
+                                "vpcEndpointId": "",
+                                "vpcPeeringConnectionId": ""
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-public",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-public",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/internetGateway:InternetGateway::dev-opal-cluster/igw",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routes": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/internetGateway:InternetGateway::dev-opal-cluster/igw"
+                        ],
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat",
+                    "custom": true,
+                    "id": "nat-0a2c14fe5e3106255",
+                    "type": "aws:ec2/natGateway:NatGateway",
+                    "inputs": {
+                        "__defaults": [
+                            "connectivityType"
+                        ],
+                        "allocationId": "eipalloc-08f64844743064739",
+                        "connectivityType": "public",
+                        "subnetId": "subnet-0bc3c22dbaa3f66fc",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/nat",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        }
+                    },
+                    "outputs": {
+                        "allocationId": "eipalloc-08f64844743064739",
+                        "connectivityType": "public",
+                        "id": "nat-0a2c14fe5e3106255",
+                        "networkInterfaceId": "eni-0c06a0e33b6c14ed4",
+                        "privateIp": "10.0.55.160",
+                        "publicIp": "54.214.156.134",
+                        "subnetId": "subnet-0bc3c22dbaa3f66fc",
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/nat",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/nat",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        }
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-opal-cluster/nat/eip",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2a"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "allocationId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/eip:Eip::dev-opal-cluster/nat/eip"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2a"
+                        ],
+                        "tags": null
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-public-2b",
+                    "custom": true,
+                    "id": "rtbassoc-0d36a811c10e632b1",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-02b7283366af6c773"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-0d36a811c10e632b1",
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-02b7283366af6c773"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2b"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2b"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2c",
+                    "custom": true,
+                    "id": "rtb-0fa44f38d5c4bc77e",
+                    "type": "aws:ec2/routeTable:RouteTable",
+                    "inputs": {
+                        "__defaults": [],
+                        "routes": [
+                            {
+                                "__defaults": [],
+                                "cidrBlock": "0.0.0.0/0",
+                                "natGatewayId": "nat-0a2c14fe5e3106255"
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:route-table/rtb-0fa44f38d5c4bc77e",
+                        "id": "rtb-0fa44f38d5c4bc77e",
+                        "ownerId": "281939258594",
+                        "propagatingVgws": [],
+                        "routes": [
+                            {
+                                "carrierGatewayId": "",
+                                "cidrBlock": "0.0.0.0/0",
+                                "coreNetworkArn": "",
+                                "destinationPrefixListId": "",
+                                "egressOnlyGatewayId": "",
+                                "gatewayId": "",
+                                "instanceId": "",
+                                "ipv6CidrBlock": "",
+                                "localGatewayId": "",
+                                "natGatewayId": "nat-0a2c14fe5e3106255",
+                                "networkInterfaceId": "",
+                                "transitGatewayId": "",
+                                "vpcEndpointId": "",
+                                "vpcPeeringConnectionId": ""
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2c",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routes": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat"
+                        ],
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-public-2c",
+                    "custom": true,
+                    "id": "rtbassoc-050741da04da7b18f",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-06a4e6e0ad0279b36"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-050741da04da7b18f",
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-06a4e6e0ad0279b36"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2c"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2c"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-public-2a",
+                    "custom": true,
+                    "id": "rtbassoc-01cfc6e112e71bdf8",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-0bc3c22dbaa3f66fc"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-01cfc6e112e71bdf8",
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-0bc3c22dbaa3f66fc"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2a"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2a"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-public-2d",
+                    "custom": true,
+                    "id": "rtbassoc-0e337c93924915c49",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-03b9d1b7d349b885c"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-0e337c93924915c49",
+                        "routeTableId": "rtb-0e55c54808433092e",
+                        "subnetId": "subnet-03b9d1b7d349b885c"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2d"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-public"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-public-2d"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2b",
+                    "custom": true,
+                    "id": "rtb-0f7d076e8c5f77d80",
+                    "type": "aws:ec2/routeTable:RouteTable",
+                    "inputs": {
+                        "__defaults": [],
+                        "routes": [
+                            {
+                                "__defaults": [],
+                                "cidrBlock": "0.0.0.0/0",
+                                "natGatewayId": "nat-0a2c14fe5e3106255"
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:route-table/rtb-0f7d076e8c5f77d80",
+                        "id": "rtb-0f7d076e8c5f77d80",
+                        "ownerId": "281939258594",
+                        "propagatingVgws": [],
+                        "routes": [
+                            {
+                                "carrierGatewayId": "",
+                                "cidrBlock": "0.0.0.0/0",
+                                "coreNetworkArn": "",
+                                "destinationPrefixListId": "",
+                                "egressOnlyGatewayId": "",
+                                "gatewayId": "",
+                                "instanceId": "",
+                                "ipv6CidrBlock": "",
+                                "localGatewayId": "",
+                                "natGatewayId": "nat-0a2c14fe5e3106255",
+                                "networkInterfaceId": "",
+                                "transitGatewayId": "",
+                                "vpcEndpointId": "",
+                                "vpcPeeringConnectionId": ""
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2b",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routes": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat"
+                        ],
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2a",
+                    "custom": true,
+                    "id": "rtb-0358c6432bdefa5a4",
+                    "type": "aws:ec2/routeTable:RouteTable",
+                    "inputs": {
+                        "__defaults": [],
+                        "routes": [
+                            {
+                                "__defaults": [],
+                                "cidrBlock": "0.0.0.0/0",
+                                "natGatewayId": "nat-0a2c14fe5e3106255"
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:route-table/rtb-0358c6432bdefa5a4",
+                        "id": "rtb-0358c6432bdefa5a4",
+                        "ownerId": "281939258594",
+                        "propagatingVgws": [],
+                        "routes": [
+                            {
+                                "carrierGatewayId": "",
+                                "cidrBlock": "0.0.0.0/0",
+                                "coreNetworkArn": "",
+                                "destinationPrefixListId": "",
+                                "egressOnlyGatewayId": "",
+                                "gatewayId": "",
+                                "instanceId": "",
+                                "ipv6CidrBlock": "",
+                                "localGatewayId": "",
+                                "natGatewayId": "nat-0a2c14fe5e3106255",
+                                "networkInterfaceId": "",
+                                "transitGatewayId": "",
+                                "vpcEndpointId": "",
+                                "vpcPeeringConnectionId": ""
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2a",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routes": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat"
+                        ],
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2d",
+                    "custom": true,
+                    "id": "rtb-02143eee272f334e4",
+                    "type": "aws:ec2/routeTable:RouteTable",
+                    "inputs": {
+                        "__defaults": [],
+                        "routes": [
+                            {
+                                "__defaults": [],
+                                "cidrBlock": "0.0.0.0/0",
+                                "natGatewayId": "nat-0a2c14fe5e3106255"
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1",
+                            "__defaults": []
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "outputs": {
+                        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"delete\":300000000000,\"update\":120000000000}}",
+                        "arn": "arn:aws:ec2:us-west-2:281939258594:route-table/rtb-02143eee272f334e4",
+                        "id": "rtb-02143eee272f334e4",
+                        "ownerId": "281939258594",
+                        "propagatingVgws": [],
+                        "routes": [
+                            {
+                                "carrierGatewayId": "",
+                                "cidrBlock": "0.0.0.0/0",
+                                "coreNetworkArn": "",
+                                "destinationPrefixListId": "",
+                                "egressOnlyGatewayId": "",
+                                "gatewayId": "",
+                                "instanceId": "",
+                                "ipv6CidrBlock": "",
+                                "localGatewayId": "",
+                                "natGatewayId": "nat-0a2c14fe5e3106255",
+                                "networkInterfaceId": "",
+                                "transitGatewayId": "",
+                                "vpcEndpointId": "",
+                                "vpcPeeringConnectionId": ""
+                            }
+                        ],
+                        "tags": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "tagsAll": {
+                            "ClusterName": "dev-opal-cluster-cluster",
+                            "Environment": "dev",
+                            "Name": "dev-opal-cluster/rt-private-2d",
+                            "Owner": "corpeng",
+                            "Project": "opal-cluster",
+                            "ProjectId": "3af8466a-e6c5-4044-8f5c-086520383dd1"
+                        },
+                        "vpcId": "vpc-0d07697f9ca0b153b"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routes": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/natGateway:NatGateway::dev-opal-cluster/nat"
+                        ],
+                        "tags": null,
+                        "vpcId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/vpc:Vpc::dev-opal-cluster/vpc"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-private-2c",
+                    "custom": true,
+                    "id": "rtbassoc-055ee66a06ac8e0f7",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0fa44f38d5c4bc77e",
+                        "subnetId": "subnet-0443cdfa25ac45e95"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-055ee66a06ac8e0f7",
+                        "routeTableId": "rtb-0fa44f38d5c4bc77e",
+                        "subnetId": "subnet-0443cdfa25ac45e95"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2c",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2c"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2c"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2c"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-private-2b",
+                    "custom": true,
+                    "id": "rtbassoc-00ba637be37a81d91",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0f7d076e8c5f77d80",
+                        "subnetId": "subnet-013c77eb83d7c959d"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-00ba637be37a81d91",
+                        "routeTableId": "rtb-0f7d076e8c5f77d80",
+                        "subnetId": "subnet-013c77eb83d7c959d"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2b",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2b"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2b"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2b"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-private-2a",
+                    "custom": true,
+                    "id": "rtbassoc-09ce62d5c63eb6102",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-0358c6432bdefa5a4",
+                        "subnetId": "subnet-062e33b1cf2e7ce8a"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-09ce62d5c63eb6102",
+                        "routeTableId": "rtb-0358c6432bdefa5a4",
+                        "subnetId": "subnet-062e33b1cf2e7ce8a"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2a",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2a"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2a"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2a"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTableAssociation:RouteTableAssociation::dev-opal-cluster/rtacc-private-2d",
+                    "custom": true,
+                    "id": "rtbassoc-07930e3ba62d2cf1c",
+                    "type": "aws:ec2/routeTableAssociation:RouteTableAssociation",
+                    "inputs": {
+                        "__defaults": [],
+                        "routeTableId": "rtb-02143eee272f334e4",
+                        "subnetId": "subnet-0f8f696561644975a"
+                    },
+                    "outputs": {
+                        "gatewayId": "",
+                        "id": "rtbassoc-07930e3ba62d2cf1c",
+                        "routeTableId": "rtb-02143eee272f334e4",
+                        "subnetId": "subnet-0f8f696561644975a"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2d",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2d"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "routeTableId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/routeTable:RouteTable::dev-opal-cluster/rt-private-2d"
+                        ],
+                        "subnetId": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:ec2/subnet:Subnet::dev-opal-cluster/subnet-private-2d"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                },
+                {
+                    "urn": "urn:pulumi:dev::iac-opal-fedramp::aws:iam/role:Role::dev-opal-cluster-role-cluster-service",
+                    "custom": true,
+                    "id": "dev-opal-cluster-role-cluster-service-738c330",
+                    "type": "aws:iam/role:Role",
+                    "inputs": {
+                        "__defaults": [
+                            "forceDetachPolicies",
+                            "maxSessionDuration",
+                            "name",
+                            "path"
+                        ],
+                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Effect\":\"Allow\"}]}",
+                        "forceDetachPolicies": false,
+                        "managedPolicyArns": [
+                            "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                            "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                            "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                            "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+                        ],
+                        "maxSessionDuration": 3600,
+                        "name": "dev-opal-cluster-role-cluster-service-738c330",
+                        "path": "/"
+                    },
+                    "outputs": {
+                        "arn": "arn:aws:iam::281939258594:role/dev-opal-cluster-role-cluster-service-738c330",
+                        "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+                        "createDate": "2022-06-13T17:14:49Z",
+                        "description": "",
+                        "forceDetachPolicies": false,
+                        "id": "dev-opal-cluster-role-cluster-service-738c330",
+                        "inlinePolicies": [
+                            {
+                                "name": "",
+                                "policy": ""
+                            }
+                        ],
+                        "managedPolicyArns": [
+                            "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                            "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-metrics",
+                            "arn:aws:iam::281939258594:policy/dev-opal-cluster-policy-elb",
+                            "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+                        ],
+                        "maxSessionDuration": 3600,
+                        "name": "dev-opal-cluster-role-cluster-service-738c330",
+                        "namePrefix": "",
+                        "path": "/",
+                        "tags": {},
+                        "tagsAll": {},
+                        "uniqueId": "AROAUDJHDVTREZHWJU4N2"
+                    },
+                    "parent": "urn:pulumi:dev::iac-opal-fedramp::pulumi:pulumi:Stack::iac-opal-fedramp-dev",
+                    "dependencies": [
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-metrics",
+                        "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-elb"
+                    ],
+                    "provider": "urn:pulumi:dev::iac-opal-fedramp::pulumi:providers:aws::default_5_7_0::8add3880-d18c-41de-8587-abd73e4d9326",
+                    "propertyDependencies": {
+                        "assumeRolePolicy": null,
+                        "managedPolicyArns": [
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-metrics",
+                            "urn:pulumi:dev::iac-opal-fedramp::aws:iam/policy:Policy::dev-opal-cluster-policy-elb"
+                        ]
+                    },
+                    "sequenceNumber": 1
+                }
+            ]
+        }
+    }
+}
