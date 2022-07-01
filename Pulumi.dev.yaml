@@ -1,9 +1,0 @@
-encryptionsalt: v1:Hn/F35eE34g=:v1:5qOgV/lfBMJjqcmS:+hEYInjtYa4rpa5j9X6URuQ//9Iu8Q==
-config:
-  aws:profile: dev
-  aws:region: us-west-2
-  aws:sharedCredentialsFile: /Users/derek.spiner/.aws/credentials
-  iac-opal-fedramp:cidr: 10.0.0.0/16
-  iac-opal-fedramp:subnetMask: 19
-  iac-opal-fedramp:owner: ceng
-  iac-opal-fedramp:projectId: 55b96ffa-706c-4130-a413-12f49a0b7a85
