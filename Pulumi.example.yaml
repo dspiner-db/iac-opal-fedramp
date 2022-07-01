@@ -1,0 +1,9 @@
+encryptionsalt: v1:generated_randomly_by_pulumi_upon_stack_init
+config:
+  aws:profile: dev # AWS Profile
+  aws:region: us-west-2
+  # aws:sharedCredentialsFile: ~/.aws/credentials # Only Needed if the aws:profile variable isnt working
+  iac-opal-fedramp:cidr: 10.0.0.0/16 # VPC Cidr
+  iac-opal-fedramp:subnetMask: 19 # Subnet Cidr
+  iac-opal-fedramp:owner: team-myself # who owns the infra
+  # iac-opal-fedramp:projectId: # Will Generate an ID upon First Use - Enter it here to prevent updating of tags

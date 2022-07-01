@@ -1,2 +1,9 @@
 /bin/
 /node_modules/
+/policies
+
+/state
+
+
+# Remove Temp
+Pulumi.yaml
